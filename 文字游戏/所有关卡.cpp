@@ -747,7 +747,7 @@ int sign_begintext3 = 0;
 int sign_twowater = 0; // 探索冯
 int sign_keytext = 0;
 int sign_1 = 0; //为了使得printsecond函数里的sleep使用一次
-int sign_keytext2 = 0;
+int sign_keytext2 = 0; //“不”字的标志
 int map_3[33][33] = {
 	{0,0,0,0,0,		0,0,0,0,0,		0,0,0,0,0,	0,0,0,0,0,	0,0,0,0,0,		0,0,0,0,0,	0,0,0},
 	{0,0,0,0,1,		1,0,0,0,0,		0,0,0,0,1,	1,0,0,0,0,	0,0,0,0,0,		0,0,1,1,0,	0,0,0},
@@ -1207,7 +1207,7 @@ void PrintSecondGodGame() {
 		}
 	}
 
-	if (sign_keytext == 1)
+	if (sign_keytext == 1) //探索宝箱为1
 	{
 		outtextxy(10, 3, "這是一本【武功秘籍】，上面記載了一套劍法......");
 		if (sign_1 == 0) { Sleep(1000); }
@@ -1217,7 +1217,7 @@ void PrintSecondGodGame() {
 
 		if (sign_keytext2 == 0) //按下删除键之后就不会显示 不 字
 		{
-			outtextxy(298, 43, "不");
+			outtextxy(370, 43, "不"); //差值17
 		}
 		else /*{ Sleep(1000); cleardevice(); }*/;
 
