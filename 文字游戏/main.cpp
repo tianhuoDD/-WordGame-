@@ -25,8 +25,8 @@
 int main(void) {
 
 	initgraph(WIN_WIDTH, WIN_HEIGHT, 0);//界面大小
-	mciSendString("open music/点燃.mp3 ", 0, 0, 0);
-	mciSendString("play music/点燃.mp3 ", 0, 0, 0);
+	mciSendString("open ./music/点燃.mp3 ", 0, 0, 0);
+	mciSendString("play ./music/点燃.mp3 from 0", 0, 0, 0);
 	
 	//Sleep(1000);
 	//mciSendString("pause music/安静.mp3 ", 0, 0, 0);

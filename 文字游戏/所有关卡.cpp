@@ -111,7 +111,7 @@ void InformationOfFirstBarrier()
 			tool_wood = 0;		//背包取消显示木头
 
 			//cleardevice();
-			PrintFirstMap;
+			PrintFirstMap();
 			outtextxy(wo_x, wo_y, "我");
 		}
 		else if (sign_light == 1) { outtextxy(10, 10, "拿到火把后，灯火似乎更亮了..."); } //探索过柜子，探索过灯火
@@ -156,8 +156,8 @@ void InformationOfFirstBarrier()
 	else if (GetAsyncKeyState(VK_BACK) && wo_x == 370 && wo_y == 440)
 	{
 		//成功
-		mciSendString("open 删.mp3 ", 0, 0, 0);
-		mciSendString("play 删.mp3 ", 0, 0, 0);
+		mciSendString("open ./music/删.mp3 ", 0, 0, 0);
+		mciSendString("play ./music/删.mp3 from 0", 0, 0, 0);
 
 		map[8][11] = 0;
 		cleardevice();
@@ -187,8 +187,8 @@ void InformationOfFirstBarrier()
 		else if (sign_light == 1 && sign_rectangle == 0) //探索过灯火，没有触发过守卫
 		{
 			//成功
-			mciSendString("open 点燃.mp3 ", 0, 0, 0);
-			mciSendString("play 点燃.mp3 ", 0, 0, 0);
+			mciSendString("open ./music/点燃.mp3 ", 0, 0, 0);
+			mciSendString("play ./music/点燃.mp3 from 0", 0, 0, 0);
 			//mciSendString(" 点燃.mp3 ", 0, 0, 0);
 
 			Sleep(1000);
@@ -234,8 +234,8 @@ void InformationOfFirstBarrier()
 		rectangle(120, 400, 580, 440);
 
 		//失败
-		mciSendString("open 杀人2.mp3 ", 0, 0, 0);
-		mciSendString("play 杀人2.mp3 ", 0, 0, 0);
+		mciSendString("open ./music/杀人.mp3 ", 0, 0, 0);
+		mciSendString("play ./music/杀人.mp3 from 0", 0, 0, 0);
 
 		outtextxy(10, 10, "用字意杀死了守卫，他身上好像掉了一串钥匙...");
 		//Sleep(500);
@@ -265,8 +265,8 @@ void InformationOfFirstBarrier()
 	{
 
 		//失败
-		mciSendString("open 获得物品.mp3 ", 0, 0, 0);
-		mciSendString("play 获得物品.mp3 ", 0, 0, 0);
+		mciSendString("open ./music/获得物品.mp3 ", 0, 0, 0);
+		mciSendString("play ./music/获得物品.mp3 ", 0, 0, 0);
 
 		sign_get = 0;
 		tool_key = 1;
@@ -287,7 +287,7 @@ void InformationOfFirstBarrier()
 
 	}
 }
-//移动功能
+//第一关 移动功能
 void Move1() {
 
 	InformationOfFirstBarrier();
@@ -374,8 +374,8 @@ void PrintFirstMap()
 					wo_y >= top_distance + space * 5 && wo_y <= top_distance + space * 7 &&
 					GetAsyncKeyState(VK_BACK))		//删除 画
 				{
-					mciSendString("open 杀人1.mp3 ", 0, 0, 0);
-					mciSendString("play 杀人1.mp3 ", 0, 0, 0);
+					mciSendString("open ./music/杀人.mp3 ", 0, 0, 0);
+					mciSendString("play ./music/杀人.mp3 from 0", 0, 0, 0);
 					delete_temp = 2;
 					sign_painting = 1;
 					map[6][18] = 0;//开辟道路
@@ -451,8 +451,8 @@ void PrintFirstMap()
 
 	if (tool_key == 1) {
 		
-		mciSendString("open ./music/字意2.mp3 ", 0, 0, 0);
-		mciSendString("play ./music/字意2.mp3 ", 0, 0, 0);
+		mciSendString("open ./music/字意.mp3 ", 0, 0, 0);
+		mciSendString("play ./music/字意.mp3 from 0", 0, 0, 0);
 		outtextxy(bag_x + 90 - textwidth("钥匙") / 2, bag_y + 180, "钥匙");
 	}
 }
@@ -551,8 +551,8 @@ void InformationOfSecondBarrier()
 		GetAsyncKeyState(VK_SPACE))
 	{
 
-		mciSendString("open 字意3.mp3 ", 0, 0, 0);
-		mciSendString("play 字意3.mp3 ", 0, 0, 0);
+		mciSendString("open ./music/字意.mp3 ", 0, 0, 0);
+		mciSendString("play ./music/字意.mp3 from 0", 0, 0, 0);
 
 		rectangle(158, 378, 608, 438); //出现方框
 
@@ -572,8 +572,8 @@ void InformationOfSecondBarrier()
 		if (tool_key == 1) //如果获得了钥匙
 		{
 			//成功
-			mciSendString("open 吹散毒气.mp3 ", 0, 0, 0);
-			mciSendString("play 吹散毒气.mp3 ", 0, 0, 0);
+			mciSendString("open ./music/吹散毒气.mp3 ", 0, 0, 0);
+			mciSendString("play ./music/吹散毒气.mp3 ", 0, 0, 0);
 
 			sign_openlock = 1; //打开了 锁 的标志
 			map_second[1][12] = 0; //开了锁后，删除毒字
@@ -897,8 +897,8 @@ void InformationOfGodBarrier() {
 	//剑
 	if (GetAsyncKeyState(VK_SPACE) && wo_x == 190 && wo_y == 380)
 	{
-		mciSendString("open 字意5.mp3 ", 0, 0, 0);
-		mciSendString("play 字意5.mp3 ", 0, 0, 0);
+		mciSendString("open ./music/字意.mp3 ", 0, 0, 0);
+		mciSendString("play ./music/字意.mp3 from 0", 0, 0, 0);
 		outtextxy(10, 10, "我：获得武器 剑 ");
 		map_3[13][1] = 0;
 		map_3_temp[13][1] = 0;
@@ -942,8 +942,8 @@ void InformationOfGodBarrier() {
 	//冯
 	if (GetAsyncKeyState(VK_SPACE) && wo_x == 250 && wo_y == 220)
 	{
-		mciSendString("open 字意6.mp3 ", 0, 0, 0);
-		mciSendString("play 字意6.mp3 ", 0, 0, 0);
+		mciSendString("open ./music/字意.mp3 ", 0, 0, 0);
+		mciSendString("play ./music/字意.mp3 from 0", 0, 0, 0);
 		outtextxy(10, 10, "获得冫和 马");
 		map_3[5][4] = 0;
 		map_3_temp[5][4] = 0;
@@ -980,16 +980,16 @@ void InformationOfGodBarrier() {
 	if (GetAsyncKeyState(VK_BACK) &&
 		wo_x == 370 && wo_y == 60)
 	{
-		mciSendString("open 删2.mp3 ", 0, 0, 0); //放不出来
-		mciSendString("play 删2.mp3 ", 0, 0, 0);
+		mciSendString("open ./music/删.mp3 ", 0, 0, 0); //放不出来
+		mciSendString("play ./music/删.mp3 from 0", 0, 0, 0);
 		sign_keytext2 = 1; //按下删除键后不字消失
 
 		cleardevice();
 		PrintSecondGodGame();
 		outtextxy(wo_x, wo_y, "我");
 		rectangle(12, 44, 552, 67); //方框
-		mciSendString("open 字意4.mp3 ", 0, 0, 0);
-		mciSendString("play 字意4.mp3 ", 0, 0, 0);
+		mciSendString("open ./music/字意.mp3 ", 0, 0, 0);
+		mciSendString("play ./music/字意.mp3 from 0", 0, 0, 0);
 		Sleep(1000);
 
 

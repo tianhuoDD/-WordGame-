@@ -184,8 +184,8 @@ int SuccessSkipView() {
 	outtextxy(325, 75, "恭喜你通过主线关卡！");
 	outtextxy(300, 140, "请选择是否游玩彩蛋关卡");
 
-	mciSendString("open 过关2.mp3 ", 0, 0, 0);
-	mciSendString("play 过关2.mp3 ", 0, 0, 0);
+	mciSendString("open ./music/过关.mp3 ", 0, 0, 0);
+	mciSendString("play ./music/过关.mp3 from 0", 0, 0, 0);
 
 	ExMessage msg;
 	while (true)
@@ -249,8 +249,8 @@ int CommonPassView()
 	outtextxy(332, 300, "有任何想法或宝贵意见，");
 	outtextxy(380, 350, "请联系xxx反馈。");
 
-	mciSendString("open 过关1.mp3 ", 0, 0, 0);
-	mciSendString("play 过关1.mp3 ", 0, 0, 0);
+	mciSendString("open ./music/过关.mp3 ", 0, 0, 0);
+	mciSendString("play ./music/过关.mp3 from 0", 0, 0, 0);
 
 	//鼠标点击按钮进行交互
 	ExMessage msg;
