@@ -1,39 +1,37 @@
 /*
-ÕûÌå½á¹¹£º
-	1.º¯ÊýÉùÃ÷ 2.È«¾Ö±äÁ¿ 3.°´Å¥º¯Êý 4¡£º¯Êý¶¨Òå 5.Ö÷º¯Êý
+æ•´ä½“ç»“æž„ï¼š
+	1.å‡½æ•°å£°æ˜Ž 2.å…¨å±€å˜é‡ 3.æŒ‰é’®å‡½æ•° 4ã€‚å‡½æ•°å®šä¹‰ 5.ä¸»å‡½æ•°
 */
 
 /*
-ÇÉÃîÖ®´¦£º
-	Ìø×ªº¯Êý£º½çÃæµÄÌø×ª
-	¶þÎ¬Êý×é£ºµØÍ¼µÄ»æÖÆ
-	Ïà»¥¸¨Öú£º
-		ifµÄÇ¶Ì×£ºÌ½Ë÷µÄË³Ðò
-		±êÖ¾±äÁ¿£ºÌ½Ë÷µÄË³Ðò¡¢ÆäËû
-	ÒÆ¶¯£º
-		easyxµÄÒÆ¶¯º¯Êý£ºÈËÎï¿ÉÒÔÈÎÒâÒÆ¶¯
-		ÐéÄâ×ø±ê¡¢Êµ¼Ê×ø±ê£¨ÐÂ¡¢¾É×ø±ê£©£ºÏÞÖÆÈËÎïÒÆ¶¯
+å·§å¦™ä¹‹å¤„ï¼š
+	è·³è½¬å‡½æ•°ï¼šç•Œé¢çš„è·³è½¬
+	äºŒç»´æ•°ç»„ï¼šåœ°å›¾çš„ç»˜åˆ¶
+	ç›¸äº’è¾…åŠ©ï¼š
+		ifçš„åµŒå¥—ï¼šæŽ¢ç´¢çš„é¡ºåº
+		æ ‡å¿—å˜é‡ï¼šæŽ¢ç´¢çš„é¡ºåºã€å…¶ä»–
+	ç§»åŠ¨ï¼š
+		easyxçš„ç§»åŠ¨å‡½æ•°ï¼šäººç‰©å¯ä»¥ä»»æ„ç§»åŠ¨
+		è™šæ‹Ÿåæ ‡ã€å®žé™…åæ ‡ï¼ˆæ–°ã€æ—§åæ ‡ï¼‰ï¼šé™åˆ¶äººç‰©ç§»åŠ¨
 */
-#include "º¯ÊýÉùÃ÷.h" //º¯ÊýÉùÃ÷
+#include "å‡½æ•°å£°æ˜Ž.h" //å‡½æ•°å£°æ˜Ž
 
 
-//ºê¶¨Òå
+//å®å®šä¹‰
 #define WIN_WIDTH    1000
 #define WIN_HEIGHT   600
 
-//-------------------------------------------Ö÷º¯Êý------------------------------------------------//
+//-------------------------------------------ä¸»å‡½æ•°------------------------------------------------//
 int main(void) {
 
-	initgraph(WIN_WIDTH, WIN_HEIGHT, 0);//½çÃæ´óÐ¡
-	mciSendString("open ./music/µãÈ¼.mp3 ", 0, 0, 0);
-	mciSendString("play ./music/µãÈ¼.mp3 from 0", 0, 0, 0);
+	initgraph(WIN_WIDTH, WIN_HEIGHT, 0);//ç•Œé¢å¤§å°
 	
 	//Sleep(1000);
-	//mciSendString("pause music/°²¾².mp3 ", 0, 0, 0);
-	//mciSendString("close music/µãÈ¼.mp3 ", 0, 0, 0);
+	//mciSendString("pause music/å®‰é™.mp3 ", 0, 0, 0);
+	//mciSendString("close music/ç‚¹ç‡ƒ.mp3 ", 0, 0, 0);
 
-	/*mciSendString("open music/°²¾².mp3 ", 0, 0, 0);
-	mciSendString("play music/°²¾².mp3 ", 0, 0, 0);*/
+	/*mciSendString("open music/å®‰é™.mp3 ", 0, 0, 0);
+	mciSendString("play music/å®‰é™.mp3 ", 0, 0, 0);*/
 	
 	login();
 
