@@ -1,30 +1,30 @@
-#include "º¯ÊıÉùÃ÷.h" //º¯ÊıÉùÃ÷
-//µÚÒ»¹Ø¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª
-int space = 30;//ÎÄ×Ö¼ä¾à
-int left_distance;//µØÍ¼Óë´°¿Ú×ó²à±ß¾à//¼´µÚÒ»¸ö×ÖµÄx×ø±ê
-int top_distance;//µØÍ¼Óë´°¿Ú¶¥¶Ë±ß¾à//¼´µÚÒ»¸ö×ÖµÄy×ø±ê
-int wo_y, wo_x;//"ÎÒ"µÄÏÖÔÚ×ø±ê
-int wo_X, wo_Y;//¸³³õÖµ£º½ÓÏÂÀ´µÄĞÂ×ø±ê=ÏÖÔÚ×ø±ê
+#include "å‡½æ•°å£°æ˜.h" //å‡½æ•°å£°æ˜
+//-----ç¬¬ä¸€å…³----------ç¬¬ä¸€å…³----------ç¬¬ä¸€å…³----------ç¬¬ä¸€å…³----------ç¬¬ä¸€å…³----------ç¬¬ä¸€å…³----------ç¬¬ä¸€å…³-----
+int space = 30;//æ–‡å­—é—´è·
+int left_distance;//åœ°å›¾ä¸çª—å£å·¦ä¾§è¾¹è·//å³ç¬¬ä¸€ä¸ªå­—çš„xåæ ‡
+int top_distance;//åœ°å›¾ä¸çª—å£é¡¶ç«¯è¾¹è·//å³ç¬¬ä¸€ä¸ªå­—çš„yåæ ‡
+int wo_y, wo_x;//"æˆ‘"çš„ç°åœ¨åæ ‡
+int wo_X, wo_Y;//èµ‹åˆå€¼ï¼šæ¥ä¸‹æ¥çš„æ–°åæ ‡=ç°åœ¨åæ ‡
 int pause_graph_x = 760, pause_graph_y = 35;
 int bag_x = 720, bag_y = 250;
-//¿ØÖÆÊÇ·ñÊä³ö£¨µÚÒ»¹Ø£ºÉ¾³ı»­£©
+//æ§åˆ¶æ˜¯å¦è¾“å‡ºï¼ˆç¬¬ä¸€å…³ï¼šåˆ é™¤ç”»ï¼‰
 int delete_temp = 1;
-//¹Ø¿¨±êÖ¾
+//å…³å¡æ ‡å¿—
 int sign_barrier_number;
-//µÚÒ»¹Ø Ì½Ë÷Ë³ĞòµÄ±êÖ¾
+//ç¬¬ä¸€å…³ æ¢ç´¢é¡ºåºçš„æ ‡å¿—
 int sign_case = 0;
 int sign_light = 0;
 int sign_text = 0;
 int sign_painting = 0;
-//µÚÒ»¹Ø ´òÓ¡¹¤¾ßµÄ±êÖ¾
+//ç¬¬ä¸€å…³ æ‰“å°å·¥å…·çš„æ ‡å¿—
 int tool_wood = 0,
 tool_knife = 0,
 tool_key = 0,
 tool_torch = 0;
-//µÚÒ»¹Ø ·½¿ò±êÖ¾
+//ç¬¬ä¸€å…³ æ–¹æ¡†æ ‡å¿—
 int sign_rectangle = 0;
 int sign_get = 0;
-//µÚÒ»¹Ø µØÍ¼£¨È«¾Ö£©
+//ç¬¬ä¸€å…³ åœ°å›¾ï¼ˆå…¨å±€ï¼‰
 int map[13][21] = {
 	{0,0,0,0,0,		0,0,0,10,11,	0,0,0,0,0,	0,0,0,0,0},
 	{1,1,1,1,1,		1,1,1,1,1,		1,1,1,1,1,	1,1,1,1,1,	1},
@@ -41,7 +41,7 @@ int map[13][21] = {
 	{1,1,1,1,1,		1,1,1,1,1,		1,1,1,1,1,	1,1,1,1,1,	1},
 };
 
-//µÚÒ»¹ØÖ÷Ò³Ãæ
+//ç¬¬ä¸€å…³ä¸»é¡µé¢
 void FirstGameService() {
 
 	sign_barrier_number = 1;
@@ -56,10 +56,10 @@ void FirstGameService() {
 	{
 		cleardevice();
 
-		BeginBatchDraw();//ÅúÁ¿»æÍ¼·À»­Ãæ¿¨¶Ù
+		BeginBatchDraw();//æ‰¹é‡ç»˜å›¾é˜²ç”»é¢å¡é¡¿
 
-		PrintFirstMap(); //3 ´òÓ¡µÚÒ»¹ØµØÍ¼
-		outtextxy(wo_x, wo_y, "ÎÒ");
+		PrintFirstMap(); //3 æ‰“å°ç¬¬ä¸€å…³åœ°å›¾
+		outtextxy(wo_x, wo_y, "æˆ‘");
 
 		EndBatchDraw();
 
@@ -67,137 +67,138 @@ void FirstGameService() {
 	}
 }
 
-//--------------------------------4.º¯Êı¶¨Òå----------------------------------------//
+//--------------------------------4.å‡½æ•°å®šä¹‰----------------------------------------//
 
-//Í¼Ïñ¡ª¡ª´òÓ¡ÔİÍ£°´Å¥
+//å›¾åƒâ€”â€”æ‰“å°æš‚åœæŒ‰é’®
 void ESC() {
 	settextstyle(25, 0, "Zpix");
 	char text[50] = "ESC";
-	outtextxy(pause_graph_x + 80 / 2 - textwidth(text) / 2, pause_graph_y + 40 / 2 - textheight(text) / 2, text);//ÎÄ×Ö¾ÓÖĞ
+	outtextxy(pause_graph_x + 80 / 2 - textwidth(text) / 2, pause_graph_y + 40 / 2 - textheight(text) / 2, text);//æ–‡å­—å±…ä¸­
 	roundrect(pause_graph_x, pause_graph_y, pause_graph_x + 80, pause_graph_y + 40, 15, 15);
 }
 
-//Í¼Ïñ¡ª¡ª´òÓ¡±³°ü
+//å›¾åƒâ€”â€”æ‰“å°èƒŒåŒ…
 void Bag() {
 	settextstyle(25, 0, "Zpix");
-	char text[50] = "±³°üÀ¸";
-	outtextxy(bag_x + 90 - textwidth(text) / 2, bag_y + 10, text);//ÎÄ×Ö¾ÓÖĞ
-	roundrect(bag_x, bag_y, bag_x + 180/*Ö±½Ó¼ÓÉÏ·½¿òµÄ¿í¶È*/, bag_y + 250, 20, 20);
+	char text[50] = "èƒŒåŒ…æ ";
+	outtextxy(bag_x + 90 - textwidth(text) / 2, bag_y + 10, text);//æ–‡å­—å±…ä¸­
+	roundrect(bag_x, bag_y, bag_x + 180/*ç›´æ¥åŠ ä¸Šæ–¹æ¡†çš„å®½åº¦*/, bag_y + 250, 20, 20);
 }
 
-//ÎÄ±¾»¥¶¯
+//æ–‡æœ¬äº’åŠ¨
 void InformationOfFirstBarrier()
 {
 	settextstyle(25, 0, "Zpix");
 
-	//ÅĞ¶Ï"ÎÒ"ÏÖÔÚµÄÎ»ÖÃ£¬Èç¹ûÔÚÕâ¸ö·¶Î§£¬ÇÒ°´Ä³¼ü£¬ÔòÌØ¶¨Î»ÖÃÊä³öÎÄ±¾
+	//åˆ¤æ–­"æˆ‘"ç°åœ¨çš„ä½ç½®ï¼Œå¦‚æœåœ¨è¿™ä¸ªèŒƒå›´ï¼Œä¸”æŒ‰æŸé”®ï¼Œåˆ™ç‰¹å®šä½ç½®è¾“å‡ºæ–‡æœ¬
 
-	//µÆ
+	//ç¯
 	if (wo_x >= left_distance + space * 8 && wo_x <= left_distance + space * 10 &&
 		wo_y >= top_distance + space * 2 && wo_y <= top_distance + space * 3 &&
 		GetAsyncKeyState(VK_SPACE))
 	{
-		if (sign_case == 0) { outtextxy(10, 10, "Ò¡Ò·µÄµÆ»ğËÆÎÒÈËÉúÆ®ºö²»¶¨..."); } //Ã»ÓĞÌ½Ë÷¹ı¹ñ×Ó
-		else if (sign_case == 1)																//Ì½Ë÷¹ı¹ñ×Ó
+		if (sign_case == 0) { outtextxy(10, 10, "æ‘‡æ›³çš„ç¯ç«ä¼¼æˆ‘äººç”Ÿé£˜å¿½ä¸å®š..."); } //æ²¡æœ‰æ¢ç´¢è¿‡æŸœå­
+		else if (sign_case == 1)	//æ¢ç´¢è¿‡æŸœå­
 		{
-
-
-
-			outtextxy(10, 10, "²»Ğ¡ĞÄ°ÑĞ¡Ä¾°ôÅöµ½µÆ»ğ£¬ÒâÍâµØ»ñµÃÒ»¸ö»ğ°Ñ...");
+			outtextxy(10, 10, "æŠŠæœ¨æ£’ç‚¹ç‡ƒè·å¾—ä¸€ä¸ªç«æŠŠ...");
+			mciSendString("open ./music/å­—æ„.mp3", 0, 0, 0);
+			mciSendString("play ./music/å­—æ„.mp3 from 0", 0, 0, 0);
 
 			sign_case = 2;
-			sign_light = 1;		//»ñµÃ»ğ°Ñ
-			tool_torch = 1;		//±³°üÏÔÊ¾»ğ°Ñ
-			tool_wood = 0;		//±³°üÈ¡ÏûÏÔÊ¾Ä¾Í·
+			sign_light = 1;		//è·å¾—ç«æŠŠ
+			tool_torch = 1;		//èƒŒåŒ…æ˜¾ç¤ºç«æŠŠ
+			tool_wood = 0;		//èƒŒåŒ…å–æ¶ˆæ˜¾ç¤ºæœ¨å¤´
 
-			//cleardevice();
+			cleardevice();
 			PrintFirstMap();
-			outtextxy(wo_x, wo_y, "ÎÒ");
+			outtextxy(wo_x, wo_y, "æˆ‘");
 		}
-		else if (sign_light == 1) { outtextxy(10, 10, "ÄÃµ½»ğ°Ñºó£¬µÆ»ğËÆºõ¸üÁÁÁË..."); } //Ì½Ë÷¹ı¹ñ×Ó£¬Ì½Ë÷¹ıµÆ»ğ
+		else if (sign_light == 1) { outtextxy(10, 10, "æ‹¿åˆ°ç«æŠŠåï¼Œç¯ç«ä¼¼ä¹æ›´äº®äº†..."); } //æ¢ç´¢è¿‡æŸœå­ï¼Œæ¢ç´¢è¿‡ç¯ç«
 	}
 
-	//»­
+	//ç”»
 	else if (wo_x >= left_distance + space * 17 && wo_x <= left_distance + space * 18 &&
 		wo_y >= top_distance + space * 5 && wo_y <= top_distance + space * 7 &&
 		GetAsyncKeyState(VK_SPACE)) {
 		if (sign_painting == 0)
 		{
-			outtextxy(10, 10, "ËÆºõÃ»Ê²Ã´ÌØ±ğÖ®´¦µÄ»­×÷£¬µäÓü³¤Ä¬ĞíÎÒ¹ÒÔÚÕâ¶ù...");
+			outtextxy(10, 10, "ä¼¼ä¹æ²¡ä»€ä¹ˆç‰¹åˆ«ä¹‹å¤„çš„ç”»ä½œï¼Œå…¸ç‹±é•¿é»˜è®¸æˆ‘æŒ‚åœ¨è¿™å„¿...");
 		}
 		else;
 	}
 
-	//´²
+	//åºŠ
 	else if (wo_x >= left_distance + space * 16 && wo_x <= left_distance + space * 18 &&
 		wo_y >= top_distance + space * 8 && wo_y <= top_distance + space * 11 &&
 		GetAsyncKeyState(VK_SPACE)
 		) {
-		outtextxy(10, 10, "Ã¿ÌìÔÚ¼áÓ²µÄ´²°åÉÏÈëË¯£¬ÈÃÎÒ¼á¶¨ÁË¸´³ğÖ®ĞÄ...");
+		outtextxy(10, 10, "æ¯å¤©åœ¨åšç¡¬çš„åºŠæ¿ä¸Šå…¥ç¡ï¼Œè®©æˆ‘åšå®šäº†å¤ä»‡ä¹‹å¿ƒ...");
 	}
 
-	//Ëø
+	//é”
 	else if (wo_x >= left_distance + space * 2 && wo_x <= left_distance + space * 3 &&
 		wo_y >= top_distance + space * 5 && wo_y <= top_distance + space * 8 &&
 		GetAsyncKeyState(VK_SPACE)
 		) {
-		outtextxy(10, 10, "ÃÅ±»ÌúËøËø×¡£¬ÎŞ·¨´ò¿ª...");
+		outtextxy(10, 10, "é—¨è¢«é“é”é”ä½ï¼Œæ— æ³•æ‰“å¼€...");
 	}
 
-	//¶´
+	//æ´
 	else if (wo_x == left_distance + space * 19 &&
 		wo_y == top_distance + space * 8 &&
 		GetAsyncKeyState(VK_SPACE) && map[6][20] == 0)
 	{
-		outtextxy(10, 10, "¶´µÄºóÃæÏÂË®µÀ...");
+		outtextxy(10, 10, "æ´çš„åé¢ä¸‹æ°´é“...");
 	}
 
-	//É¾³ı Äã
+	//åˆ é™¤ ä½ 
 	else if (GetAsyncKeyState(VK_BACK) && wo_x == 370 && wo_y == 440)
 	{
-		//³É¹¦
-		mciSendString("open ./music/É¾.mp3 ", 0, 0, 0);
-		mciSendString("play ./music/É¾.mp3 from 0", 0, 0, 0);
+		//æˆåŠŸ
+		mciSendString("open ./music/åˆ .mp3 ", 0, 0, 0);
+		mciSendString("play ./music/åˆ .mp3 from 0", 0, 0, 0);
 
 		map[8][11] = 0;
 		cleardevice();
-		outtextxy(wo_x, wo_y, "ÎÒ");
+		outtextxy(wo_x, wo_y, "æˆ‘");
 		PrintFirstMap();
 	}
 
-	//¹ñ
+	//æŸœ
 	else if (wo_x >= left_distance + space * 12 && wo_x <= left_distance + space * 15 &&
 		wo_y >= top_distance + space * 9 && wo_y <= top_distance + space * 11 &&
 		GetAsyncKeyState(VK_SPACE)
 		)
 	{
-		if (sign_case == 0) //Èç¹ûÃ»Ì½Ë÷¹ı¹ñ×Ó
+		if (sign_case == 0) //å¦‚æœæ²¡æ¢ç´¢è¿‡æŸœå­
 		{
-			outtextxy(10, 10, "»ñµÃÒ»°Ñ'Ê¯¼âµ¶'ºÍÒ»Ğ¡¸ùÄ¾°ô£¬Ê¯µ¶ÊÇÎÒÈÕÒ¹´òÄ¥¶ø³É...");
+			outtextxy(10, 10, "è·å¾—ä¸€æŠŠ çŸ³å°–åˆ€ å’Œä¸€å°æ ¹ æœ¨æ£’ï¼ŒçŸ³åˆ€æ˜¯æˆ‘æ—¥å¤œæ‰“ç£¨è€Œæˆ...");
+			mciSendString("open ./music/å­—æ„.mp3 ", 0, 0, 0);
+			mciSendString("play ./music/å­—æ„.mp3 ", 0, 0, 0);
 			tool_wood = 1;
 			tool_knife = 1;
 			sign_case = 1;
 			PrintFirstMap();
 		}
-		else if (sign_case == 1 && sign_light == 0) //Ì½Ë÷¹ı¹ñ×Ó£¬Ã»Ì½Ë÷µÆ»ğ
+		else if (sign_case == 1 && sign_light == 0) //æ¢ç´¢è¿‡æŸœå­ï¼Œæ²¡æ¢ç´¢ç¯ç«
 		{
-			outtextxy(10, 10, "¸Õ²ÅÔÚÕâÀï»ñµÃÒ»°Ñ'Ê¯¼âµ¶'ºÍÒ»Ğ¡¸ùÄ¾°ô£¬ÏÖÔÚÃ»Ê²Ã´¶«Î÷ÁË...");
+			outtextxy(10, 10, "åˆšæ‰åœ¨è¿™é‡Œè·å¾—ä¸€æŠŠ'çŸ³å°–åˆ€'å’Œä¸€å°æ ¹æœ¨æ£’ï¼Œç°åœ¨æ²¡ä»€ä¹ˆä¸œè¥¿äº†...");
 
 		}
-		else if (sign_light == 1 && sign_rectangle == 0) //Ì½Ë÷¹ıµÆ»ğ£¬Ã»ÓĞ´¥·¢¹ıÊØÎÀ
+		else if (sign_light == 1 && sign_rectangle == 0) //æ¢ç´¢è¿‡ç¯ç«ï¼Œæ²¡æœ‰è§¦å‘è¿‡å®ˆå«
 		{
-			//³É¹¦
-			mciSendString("open ./music/µãÈ¼.mp3 ", 0, 0, 0);
-			mciSendString("play ./music/µãÈ¼.mp3 from 0", 0, 0, 0);
-			//mciSendString(" µãÈ¼.mp3 ", 0, 0, 0);
+			//æˆåŠŸ
+			mciSendString("open ./music/ç‚¹ç‡ƒ.mp3 ", 0, 0, 0);
+			mciSendString("play ./music/ç‚¹ç‡ƒ.mp3 from 0", 0, 0, 0);
+			//mciSendString(" ç‚¹ç‡ƒ.mp3 ", 0, 0, 0);
 
 			Sleep(1000);
 
-			outtextxy(10, 10, "Äã²»Ğ¡ĞÄÓÃ»ğµãÈ¼Ò»µã»ğĞÇ£¬ÁÁ¹âÎüÒıÀ´ÁËÊØÎÀ");
+			outtextxy(10, 10, "ä½ ä¸å°å¿ƒç”¨ç«ç‚¹ç‡ƒä¸€ç‚¹ç«æ˜Ÿï¼Œäº®å…‰å¸å¼•æ¥äº†å®ˆå«");
 			settextstyle(25, 0, "Zpix");
 
-			map[10][3] = 20; // ÊØ×Ö³öÏÖ
-			//ÏÂÃæÊÇÊØÎÀ³öÏÖÊ±ËùËµµÄ¶Ô»°ÎÄ±¾
+			map[10][3] = 20; // å®ˆå­—å‡ºç°
+			//ä¸‹é¢æ˜¯å®ˆå«å‡ºç°æ—¶æ‰€è¯´çš„å¯¹è¯æ–‡æœ¬
 			map[8][3] = 21;
 			map[8][4] = 37;
 			map[8][5] = 24;
@@ -216,28 +217,28 @@ void InformationOfFirstBarrier()
 
 			tool_torch = 0;
 
-			sign_rectangle = 1; //´ËifÓï¾äÖ»ÔËĞĞÒ»´Î
-			PrintFirstMap(); //ÔÚÕâÀï°´ÏÂÒ»´Î¿Õ¸ñ¼ü£¬ÊØÎÀºÍÎÄ±¾¾Í³öÏÖÁË
+			sign_rectangle = 1; //æ­¤ifè¯­å¥åªè¿è¡Œä¸€æ¬¡
+			PrintFirstMap(); //åœ¨è¿™é‡ŒæŒ‰ä¸‹ä¸€æ¬¡ç©ºæ ¼é”®ï¼Œå®ˆå«å’Œæ–‡æœ¬å°±å‡ºç°äº†
 		}
 
-		else if (sign_case == 2) //Ì½Ë÷¹ı¹ñ×Ó£¬Ã»Ì½Ë÷µÆ»ğ
+		else if (sign_case == 2) //æ¢ç´¢è¿‡æŸœå­ï¼Œæ²¡æ¢ç´¢ç¯ç«
 		{
-			outtextxy(10, 10, "¼òÂªµÄ¹ñ×ÓÀïÒÑ¾­Ê²Ã´Ò²Ã»ÓĞÁË...");
+			outtextxy(10, 10, "ç®€é™‹çš„æŸœå­é‡Œå·²ç»ä»€ä¹ˆä¹Ÿæ²¡æœ‰äº†...");
 		}
 	}
 
-	//³öÏÖ·½¿ò
+	//å‡ºç°æ–¹æ¡†
 	else if (wo_x == 370 && wo_y == 410 && GetAsyncKeyState(VK_SPACE) && sign_rectangle == 1)
 	{
-		sign_rectangle = 2; //´ËÊ±²»ÄÜ´¥·¢"Äã²»Ğ¡ĞÄÓÃ»ğµãÈ¼Ò»µã»ğĞÇ£¬ÁÁ¹âÎüÒıÀ´ÁËÊØÎÀ"
+		sign_rectangle = 2; //æ­¤æ—¶ä¸èƒ½è§¦å‘"ä½ ä¸å°å¿ƒç”¨ç«ç‚¹ç‡ƒä¸€ç‚¹ç«æ˜Ÿï¼Œäº®å…‰å¸å¼•æ¥äº†å®ˆå«"
 		sign_get = 1;
 		rectangle(120, 400, 580, 440);
 
-		//Ê§°Ü
-		mciSendString("open ./music/É±ÈË.mp3 ", 0, 0, 0);
-		mciSendString("play ./music/É±ÈË.mp3 from 0", 0, 0, 0);
+		//å¤±è´¥
+		mciSendString("open ./music/æ€äºº.mp3 ", 0, 0, 0);
+		mciSendString("play ./music/æ€äºº.mp3 from 0", 0, 0, 0);
 
-		outtextxy(10, 10, "ÓÃ×ÖÒâÉ±ËÀÁËÊØÎÀ£¬ËûÉíÉÏºÃÏñµôÁËÒ»´®Ô¿³×...");
+		outtextxy(10, 10, "ç”¨å­—æ„æ€æ­»äº†å®ˆå«ï¼Œä»–èº«ä¸Šå¥½åƒæ‰äº†ä¸€ä¸²é’¥åŒ™...");
 		//Sleep(500);
 
 		map[8][3] = 0;
@@ -263,18 +264,15 @@ void InformationOfFirstBarrier()
 
 	else if (GetAsyncKeyState(VK_SPACE) && wo_x == 160 && wo_y == 470 && sign_get == 1)
 	{
-
-		//Ê§°Ü
-		mciSendString("open ./music/»ñµÃÎïÆ·.mp3 ", 0, 0, 0);
-		mciSendString("play ./music/»ñµÃÎïÆ·.mp3 ", 0, 0, 0);
+		mciSendString("open ./music/è·å¾—ç‰©å“.mp3 ", 0, 0, 0);
+		mciSendString("play ./music/è·å¾—ç‰©å“.mp3 ", 0, 0, 0);
 
 		sign_get = 0;
 		tool_key = 1;
 		map[10][3] = 0;
 		cleardevice();
-		//outtextxy(10, 10, "»ñµÃÒ»°ÑÔ¿³×£¬¼àÓüÀï¾Í³©Í¨ÎŞ×èÁË...");
-		outtextxy(10, 10, "»ñµÃÒ»°ÑÔ¿³×£¬¼àÓüÀï¾Í³©Í¨ÎŞ×èÁË...");
-		outtextxy(wo_x, wo_y, "ÎÒ");
+		outtextxy(10, 10, "è·å¾—ä¸€æŠŠé’¥åŒ™ï¼Œç›‘ç‹±é‡Œå°±ç•…é€šæ— é˜»äº†...");
+		outtextxy(wo_x, wo_y, "æˆ‘");
 		PrintFirstMap();
 	}
 
@@ -282,12 +280,13 @@ void InformationOfFirstBarrier()
 	{
 
 		cleardevice();
-		outtextxy(wo_x, wo_y, "ÎÒ");
+		outtextxy(wo_x, wo_y, "æˆ‘");
 		MainSecondBarrier();
 
 	}
 }
-//µÚÒ»¹Ø ÒÆ¶¯¹¦ÄÜ
+
+//ç¬¬ä¸€å…³ ç§»åŠ¨åŠŸèƒ½
 void Move1() {
 
 	InformationOfFirstBarrier();
@@ -295,10 +294,10 @@ void Move1() {
 	char key = _getch();
 
 	switch (key) {
-	case 72:  //¡ü£ºASCII
+	case 72:  //â†‘ï¼šASCII
 	case 'w':
 	case 'W':
-		//ÅĞ¶Ï"ÎÒ"ĞÂ×ø±êËùÔÚÊı×éÔªËØµÄÖµ(ÓÃÏÖÔÚ×ø±ê±íÊ¾)£ºÈç¹ûÊÇ0£¬Ôò¿ÉÒÆ¶¯£»·ñÔò²»¶¯
+		//åˆ¤æ–­"æˆ‘"æ–°åæ ‡æ‰€åœ¨æ•°ç»„å…ƒç´ çš„å€¼(ç”¨ç°åœ¨åæ ‡è¡¨ç¤º)ï¼šå¦‚æœæ˜¯0ï¼Œåˆ™å¯ç§»åŠ¨ï¼›å¦åˆ™ä¸åŠ¨
 		if (map[(wo_y - space - top_distance) / space][(wo_x - left_distance) / space] == 0 ||
 			map[(wo_y - space - top_distance) / space][(wo_x - left_distance) / space] == 90 ||
 			map[(wo_y - space - top_distance) / space][(wo_x - left_distance) / space] == 91)
@@ -357,7 +356,7 @@ void Move1() {
 
 }
 
-//´òÓ¡µÚÒ»¹ØµØÍ¼
+//æ‰“å°ç¬¬ä¸€å…³åœ°å›¾
 void PrintFirstMap()
 {
 	for (int i = 0; i < 13; ++i) {
@@ -367,115 +366,106 @@ void PrintFirstMap()
 			int word_y = top_distance + i * space;
 
 			switch (map[i][j]) {
-			case 1:outtextxy(word_x, word_y, "Ç½"); break;
+			case 1:outtextxy(word_x, word_y, "å¢™"); break;
 
 			case 3:
 				if (wo_x >= left_distance + space * 17 && wo_x <= left_distance + space * 18 &&
 					wo_y >= top_distance + space * 5 && wo_y <= top_distance + space * 7 &&
-					GetAsyncKeyState(VK_BACK))		//É¾³ı »­
+					GetAsyncKeyState(VK_BACK))		//åˆ é™¤ ç”»
 				{
-					mciSendString("open ./music/É±ÈË.mp3 ", 0, 0, 0);
-					mciSendString("play ./music/É±ÈË.mp3 from 0", 0, 0, 0);
+					mciSendString("open ./music/æ€äºº.mp3 ", 0, 0, 0);
+					mciSendString("play ./music/æ€äºº.mp3 from 0", 0, 0, 0);
 					delete_temp = 2;
 					sign_painting = 1;
-					map[6][18] = 0;//¿ª±ÙµÀÂ·
+					map[6][18] = 0;//å¼€è¾Ÿé“è·¯
 				}
 
 				if (delete_temp == 1)
 				{
-					outtextxy(word_x, word_y, "»­");
+					outtextxy(word_x, word_y, "ç”»");
 				}
 				else;
 				break;
-			case 4:outtextxy(word_x, word_y, "´²"); break;
-			case 5:outtextxy(word_x, word_y, "Ëø"); break;
-			case 6:outtextxy(word_x, word_y, "¹ñ"); break;
-			case 7:outtextxy(word_x, word_y, "µÆ"); break;
-			case 8:outtextxy(word_x, word_y, "ÃÅ"); break;
-			case 9:outtextxy(word_x, word_y, "ÊØ"); break;
-			case 10:outtextxy(word_x, word_y, "¼à"); break;
-			case 11:outtextxy(word_x, word_y, "ÀÎ"); break;
-			case 91:outtextxy(word_x, word_y, "¶´"); break;
-			case 20:outtextxy(word_x, word_y, "ÊØ"); break;
-			case 21:outtextxy(word_x, word_y, "¸ã"); break;
-			case 22:outtextxy(word_x, word_y, "Ê²"); break;
-			case 23:outtextxy(word_x, word_y, "Ã´"); break;
-			case 24:outtextxy(word_x, word_y, "çÛ"); break;
-			case 25:outtextxy(word_x, word_y, "¶ê"); break;
-			case 26:outtextxy(word_x, word_y, "×Ó"); break;
-			case 27:outtextxy(word_x, word_y, "£¬"); break;
-			case 28:outtextxy(word_x, word_y, "ÎÒ"); break;
-			case 29:outtextxy(word_x, word_y, "ÈÃ"); break;
-			case 30:outtextxy(word_x, word_y, "Äã"); break;
-			case 31:outtextxy(word_x, word_y, "ËÀ"); break;
-			case 32:outtextxy(word_x, word_y, "ÎŞ"); break;
-			case 33:outtextxy(word_x, word_y, "Ôá"); break;
-			case 34:outtextxy(word_x, word_y, "Éí"); break;
-			case 35:outtextxy(word_x, word_y, "Ö®"); break;
-			case 36:outtextxy(word_x, word_y, "µØ"); break;
-			case 37:outtextxy(word_x, word_y, "¹í"); break;
-			case 38:outtextxy(word_x, word_y, "Ô¿³×"); break;
-			case 90:outtextxy(word_x, word_y, "Ç½"); break;
-				//case 40:outtextxy(word_x, word_y, "Ç½"); break;
-				//case 39:outtextxy(word_x, word_y, "³×"); break;
+			case 4:outtextxy(word_x, word_y, "åºŠ"); break;
+			case 5:outtextxy(word_x, word_y, "é”"); break;
+			case 6:outtextxy(word_x, word_y, "æŸœ"); break;
+			case 7:outtextxy(word_x, word_y, "ç¯"); break;
+			case 8:outtextxy(word_x, word_y, "é—¨"); break;
+			case 9:outtextxy(word_x, word_y, "å®ˆ"); break;
+			case 10:outtextxy(word_x, word_y, "ç›‘"); break;
+			case 11:outtextxy(word_x, word_y, "ç‰¢"); break;
+			case 91:outtextxy(word_x, word_y, "æ´"); break;
+			case 20:outtextxy(word_x, word_y, "å®ˆ"); break;
+			case 21:outtextxy(word_x, word_y, "æ"); break;
+			case 22:outtextxy(word_x, word_y, "ä»€"); break;
+			case 23:outtextxy(word_x, word_y, "ä¹ˆ"); break;
+			case 24:outtextxy(word_x, word_y, "å¹º"); break;
+			case 25:outtextxy(word_x, word_y, "è›¾"); break;
+			case 26:outtextxy(word_x, word_y, "å­"); break;
+			case 27:outtextxy(word_x, word_y, "ï¼Œ"); break;
+			case 28:outtextxy(word_x, word_y, "æˆ‘"); break;
+			case 29:outtextxy(word_x, word_y, "è®©"); break;
+			case 30:outtextxy(word_x, word_y, "ä½ "); break;
+			case 31:outtextxy(word_x, word_y, "æ­»"); break;
+			case 32:outtextxy(word_x, word_y, "æ— "); break;
+			case 33:outtextxy(word_x, word_y, "è‘¬"); break;
+			case 34:outtextxy(word_x, word_y, "èº«"); break;
+			case 35:outtextxy(word_x, word_y, "ä¹‹"); break;
+			case 36:outtextxy(word_x, word_y, "åœ°"); break;
+			case 37:outtextxy(word_x, word_y, "é¬¼"); break;
+			case 38:outtextxy(word_x, word_y, "é’¥åŒ™"); break;
+			case 90:outtextxy(word_x, word_y, "å¢™"); break;
+				//case 40:outtextxy(word_x, word_y, "å¢™"); break;
+				//case 39:outtextxy(word_x, word_y, "åŒ™"); break;
 			default:
 				break;
 			}
 		}
 	}
 
-	//4  ¼ÓÈë°´Å¥
-	ESC();//ÔİÍ£°´Å¥µÄ×ø±ê
+	//4  åŠ å…¥æŒ‰é’®
+	ESC();//æš‚åœæŒ‰é’®çš„åæ ‡
 
-	//5  ¼ÓÈëµÀ¾ßÀ¸  
-	Bag();//´Ë´¦×¢ÒâÏÈ»­µØÍ¼ÔÚĞ´¹¦ÄÜ£¬·ñÔò¿ÉÄÜµ¼ÖÂµØÍ¼²»ÍêÈ«ÏÔÊ¾
+	//5  åŠ å…¥é“å…·æ   
+	Bag();//æ­¤å¤„æ³¨æ„å…ˆç”»åœ°å›¾åœ¨å†™åŠŸèƒ½ï¼Œå¦åˆ™å¯èƒ½å¯¼è‡´åœ°å›¾ä¸å®Œå…¨æ˜¾ç¤º
 
-	// ´òÓ¡µÀ¾ß
+	// æ‰“å°é“å…·
 	if (tool_wood == 1) {
-		mciSendString("open ./music/×ÖÒâ.mp3 ", 0, 0, 0);
-		mciSendString("play ./music/×ÖÒâ.mp3 ", 0, 0, 0);
-		outtextxy(bag_x + 90 - textwidth("Ä¾°ô") / 2, bag_y + 60, "Ä¾°ô");
+		outtextxy(bag_x + 90 - textwidth("æœ¨æ£’") / 2, bag_y + 60, "æœ¨æ£’");
 	}
 
 	if (tool_knife == 1) {
-		//mciSendString("open ×ÖÒâ.mp3 ", 0, 0, 0);
-		//mciSendString("play ×ÖÒâ.mp3 ", 0, 0, 0); 
-		outtextxy(bag_x + 90 - textwidth("Ê¯¼âµ¶") / 2, bag_y + 100, "Ê¯¼âµ¶");
+		outtextxy(bag_x + 90 - textwidth("çŸ³å°–åˆ€") / 2, bag_y + 100, "çŸ³å°–åˆ€");
 	}
 
 	if (tool_torch == 1) {
-		mciSendString("open ./music/×ÖÒâ.mp3", 0, 0, 0);
-		mciSendString("play ./music/×ÖÒâ.mp3 from 0", 0, 0, 0);
-		outtextxy(bag_x + 90 - textwidth("»ğ°Ñ") / 2, bag_y + 140, "»ğ°Ñ");
+		outtextxy(bag_x + 90 - textwidth("ç«æŠŠ") / 2, bag_y + 140, "ç«æŠŠ");
 	}
 
 	if (tool_key == 1) {
-		
-		mciSendString("open ./music/×ÖÒâ.mp3 ", 0, 0, 0);
-		mciSendString("play ./music/×ÖÒâ.mp3 from 0", 0, 0, 0);
-		outtextxy(bag_x + 90 - textwidth("Ô¿³×") / 2, bag_y + 180, "Ô¿³×");
+		outtextxy(bag_x + 90 - textwidth("é’¥åŒ™") / 2, bag_y + 180, "é’¥åŒ™");
 	}
 }
-//--------3.µÚÒ»¹Ø Ö÷Òªº¯Êı ÓÎÏ·½çÃæ---------//
+
+
+
+//--------3.ç¬¬ä¸€å…³ ä¸»è¦å‡½æ•° æ¸¸æˆç•Œé¢---------//
 int FirstBarrierView() {
 
 	settextstyle(25, 0, "Zpix");
 
-	FirstGameService();//2 ½øÈëµÚÒ»¹Ø
+	FirstGameService();//2 è¿›å…¥ç¬¬ä¸€å…³
 
-	getchar();//·ÀÖ¹³ÌĞòÉÁÍË
+	getchar();//é˜²æ­¢ç¨‹åºé—ªé€€
 	return 0;
 }
 
-
-#include "º¯ÊıÉùÃ÷.h" //º¯ÊıÉùÃ÷
-
-//µÚ¶ş¹Ø¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª
-//±êÖ¾±äÁ¿
-int sign_secondbarrier = 0; //µÚÒ»´Î½øÈëÏÂË®µÀÊ±ÏÔÊ¾¶Ô°×
-int sign_begintext = 0; //±êÖ¾£ºÈç¹ûÎª1Ôò´òÓ¡µÚÒ»´Î½øÈëµÚ¶ş¹ØÊ±¿ªÊ¼ÓÎÏ·µÄÎÄ±¾
+//ç¬¬äºŒå…³â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”
+//æ ‡å¿—å˜é‡
+int sign_secondbarrier = 0; //ç¬¬ä¸€æ¬¡è¿›å…¥ä¸‹æ°´é“æ—¶æ˜¾ç¤ºå¯¹ç™½
+int sign_begintext = 0; //æ ‡å¿—ï¼šå¦‚æœä¸º1åˆ™æ‰“å°ç¬¬ä¸€æ¬¡è¿›å…¥ç¬¬äºŒå…³æ—¶å¼€å§‹æ¸¸æˆçš„æ–‡æœ¬
 //int sign_rect = 0;
-int sign_information = 0; //Èç¹ûÎª1£¬´ú±íÕıÊ½¿ªÆôµÚÒ»¹Ø
+int sign_information = 0; //å¦‚æœä¸º1ï¼Œä»£è¡¨æ­£å¼å¼€å¯ç¬¬ä¸€å…³
 int sign_openlock = 0;
 int  map_second[12][21] = {
 	{1,1,1,1,1, 1,1,1,1,1, 1,1,10,1,1, 1,1,1,1,1 ,1},
@@ -503,7 +493,7 @@ int MainSecondBarrier()
 	getchar();
 	return 0;
 }
-//µÚ¶ş¹ØÖ÷Ò³Ãæ
+//ç¬¬äºŒå…³ä¸»é¡µé¢
 void SecondBarrierView()
 {
 
@@ -522,7 +512,7 @@ void SecondBarrierView()
 		BeginBatchDraw();
 
 		PrintSecondGame();
-		outtextxy(wo_x, wo_y, "ÎÒ");
+		outtextxy(wo_x, wo_y, "æˆ‘");
 
 		EndBatchDraw();
 
@@ -530,75 +520,75 @@ void SecondBarrierView()
 	}
 }
 
-//-------------------------------4.º¯Êı¶¨Òå-----------------------------------------//
-//µÚ¶ş¹Ø ĞÅÏ¢½»»¥
+//-------------------------------4.å‡½æ•°å®šä¹‰-----------------------------------------//
+//ç¬¬äºŒå…³ ä¿¡æ¯äº¤äº’
 void InformationOfSecondBarrier()
 {
 
 	settextstyle(25, 0, "Zpix");
 
-	//µÚÒ»´Î½øÈëµÚ¶ş¹ØµÄ¶Ô°×
+	//ç¬¬ä¸€æ¬¡è¿›å…¥ç¬¬äºŒå…³çš„å¯¹ç™½
 	if (sign_secondbarrier == 0)
 	{
-		sign_begintext = 1; //´òÓ¡¿ªÊ¼ÓÎÏ·µÄÎÄ±¾
-		sign_secondbarrier = 1; //´ÓµÚ¶ş´Î½øÈëµÚ¶ş¹Ø¾Í²»»áÏÔÊ¾Õâ¸öÎÄ±¾ÁË
+		sign_begintext = 1; //æ‰“å°å¼€å§‹æ¸¸æˆçš„æ–‡æœ¬
+		sign_secondbarrier = 1; //ä»ç¬¬äºŒæ¬¡è¿›å…¥ç¬¬äºŒå…³å°±ä¸ä¼šæ˜¾ç¤ºè¿™ä¸ªæ–‡æœ¬äº†
 		Sleep(500);
 		PrintSecondGame();
 	}
 
-	if (wo_x == 550 &&		//Èç¹û×ßµ½ÁË¿ªÊ¼ÓÎÏ·ÎÄ±¾¿ÕÈ±Î»ÖÃ°´ÏÂ¿Õ¸ñ
+	if (wo_x == 550 &&		//å¦‚æœèµ°åˆ°äº†å¼€å§‹æ¸¸æˆæ–‡æœ¬ç©ºç¼ºä½ç½®æŒ‰ä¸‹ç©ºæ ¼
 		wo_y == 380 &&
 		GetAsyncKeyState(VK_SPACE))
 	{
 
-		mciSendString("open ./music/×ÖÒâ.mp3 ", 0, 0, 0);
-		mciSendString("play ./music/×ÖÒâ.mp3 from 0", 0, 0, 0);
+		mciSendString("open ./music/å­—æ„.mp3 ", 0, 0, 0);
+		mciSendString("play ./music/å­—æ„.mp3 from 0", 0, 0, 0);
 
-		rectangle(158, 378, 608, 438); //³öÏÖ·½¿ò
+		rectangle(158, 378, 608, 438); //å‡ºç°æ–¹æ¡†
 
 		//sign_rect = 1;
-		sign_begintext = 0; //×ßµ½Óï¾ä¿ÕÈ±Î»ÖÃ°´ÏÂ¿Õ¸ñºó¾Í²»ÔÙ´òÓ¡µÚÒ»´Î½øÈëµÚ¶ş¹ØµÄ¶Ô°×
+		sign_begintext = 0; //èµ°åˆ°è¯­å¥ç©ºç¼ºä½ç½®æŒ‰ä¸‹ç©ºæ ¼åå°±ä¸å†æ‰“å°ç¬¬ä¸€æ¬¡è¿›å…¥ç¬¬äºŒå…³çš„å¯¹ç™½
 		sign_information = 1;
 		PrintSecondGame();
 	}
 
-	//Ëø
+	//é”
 	if (sign_information == 1 &&
 		wo_x == left_distance + 12 * space &&
 		wo_y == top_distance + 2 * space &&
 		GetAsyncKeyState(VK_SPACE))
 	{
-		if (tool_key == 0) { outtextxy(10, 10, "Õâ°ÑËøºÃÏñÊÇÓÃÀ´µ²·çµÄ..."); }
-		if (tool_key == 1) //Èç¹û»ñµÃÁËÔ¿³×
+		if (tool_key == 0) { outtextxy(10, 10, "è¿™æŠŠé”å¥½åƒæ˜¯ç”¨æ¥æŒ¡é£çš„..."); }
+		if (tool_key == 1) //å¦‚æœè·å¾—äº†é’¥åŒ™
 		{
-			//³É¹¦
-			mciSendString("open ./music/´µÉ¢¶¾Æø.mp3 ", 0, 0, 0);
-			mciSendString("play ./music/´µÉ¢¶¾Æø.mp3 ", 0, 0, 0);
+			//æˆåŠŸ
+			mciSendString("open ./music/å¹æ•£æ¯’æ°”.mp3 ", 0, 0, 0);
+			mciSendString("play ./music/å¹æ•£æ¯’æ°”.mp3 ", 0, 0, 0);
 
-			sign_openlock = 1; //´ò¿ªÁË Ëø µÄ±êÖ¾
-			map_second[1][12] = 0; //¿ªÁËËøºó£¬É¾³ı¶¾×Ö
-			map_second[5][16] = 0; //¿ªÁËËøºó£¬É¾³ıËø×Ö
+			sign_openlock = 1; //æ‰“å¼€äº† é” çš„æ ‡å¿—
+			map_second[1][12] = 0; //å¼€äº†é”åï¼Œåˆ é™¤æ¯’å­—
+			map_second[5][16] = 0; //å¼€äº†é”åï¼Œåˆ é™¤é”å­—
 
 			cleardevice();
-			outtextxy(10, 10, "Ï¸¿ÚÀïµÄ·çÍ¸¹ıÃÅ·ì°Ñ¶¾Æø´µµ½ÃÅÍâÃæÈ¥ÁË...");
-			outtextxy(wo_x, wo_y, "ÎÒ");
+			outtextxy(10, 10, "ç»†å£é‡Œçš„é£é€è¿‡é—¨ç¼æŠŠæ¯’æ°”å¹åˆ°é—¨å¤–é¢å»äº†...");
+			outtextxy(wo_x, wo_y, "æˆ‘");
 			PrintSecondGame();
 			Sleep(300);
 
 		}
 	}
 
-	//¶¾
+	//æ¯’
 	if (sign_information == 1 && sign_openlock != 1 &&
 		wo_x >= left_distance + 13 * space && wo_x <= left_distance + 15 * space &&
 		wo_y == top_distance + 5 * space)
 	{
 		BeginBatchDraw();
-		outtextxy(10, 10, "ºÃ´Ì±ÇÄÑÎÅµÄ¶¾Æø£¬Ö±½ÓÅöÉÏÈ¥¿ÉÄÜ»áÖĞ¶¾ÉíÍö°É...");
+		outtextxy(10, 10, "å¥½åˆºé¼»éš¾é—»çš„æ¯’æ°”ï¼Œç›´æ¥ç¢°ä¸Šå»å¯èƒ½ä¼šä¸­æ¯’èº«äº¡å§...");
 		EndBatchDraw();
 	}
 
-	//Èç¹ûÃ»ÓĞ´ò¿ªËø¾Í×ßµ½ ¶¾ µÄÎ»ÖÃ
+	//å¦‚æœæ²¡æœ‰æ‰“å¼€é”å°±èµ°åˆ° æ¯’ çš„ä½ç½®
 	if (sign_openlock == 0 &&
 		wo_x == left_distance + 16 * space &&
 		wo_y == top_distance + 5 * space)
@@ -611,10 +601,10 @@ void InformationOfSecondBarrier()
 		&& wo_y == top_distance + 5 * space
 		&& GetAsyncKeyState(VK_SPACE))
 	{
-		outtextxy(290, 100, "½øÈëÏÂÒ»¹Ø");
+		outtextxy(290, 100, "è¿›å…¥ä¸‹ä¸€å…³");
 	}
 
-	//·µ»ØµÚÒ»¹Ø
+	//è¿”å›ç¬¬ä¸€å…³
 	if (
 		wo_x == left_distance + 0 * space
 		&& wo_y == top_distance + 5 * space)
@@ -622,7 +612,7 @@ void InformationOfSecondBarrier()
 		FirstGameService();
 	}
 
-	//Í¨¹ØÌø×ª½çÃæ
+	//é€šå…³è·³è½¬ç•Œé¢
 	if (
 		wo_x == left_distance + 20 * space
 		&& wo_y == top_distance + 5 * space)
@@ -632,7 +622,7 @@ void InformationOfSecondBarrier()
 
 }
 
-//µÚ¶ş¹Ø ÒÆ¶¯
+//ç¬¬äºŒå…³ ç§»åŠ¨
 void Move2() {
 
 	InformationOfSecondBarrier();
@@ -640,10 +630,10 @@ void Move2() {
 	char key = _getch();
 
 	switch (key) {
-	case 72:  //¡ü£ºASCII
+	case 72:  //â†‘ï¼šASCII
 	case 'w':
 	case 'W':
-		//ÅĞ¶Ï"ÎÒ"ĞÂ×ø±êËùÔÚÊı×éÔªËØµÄÖµ(ÓÃÏÖÔÚ×ø±ê±íÊ¾)£ºÈç¹ûÊÇ0£¬Ôò¿ÉÒÆ¶¯£»·ñÔò²»¶¯
+		//åˆ¤æ–­"æˆ‘"æ–°åæ ‡æ‰€åœ¨æ•°ç»„å…ƒç´ çš„å€¼(ç”¨ç°åœ¨åæ ‡è¡¨ç¤º)ï¼šå¦‚æœæ˜¯0ï¼Œåˆ™å¯ç§»åŠ¨ï¼›å¦åˆ™ä¸åŠ¨
 		if (map_second[(wo_y - space - top_distance) / space][(wo_x - left_distance) / space] == 0 ||
 			map_second[(wo_y - space - top_distance) / space][(wo_x - left_distance) / space] == 93 ||
 			map_second[(wo_y - space - top_distance) / space][(wo_x - left_distance) / space] == 91 ||
@@ -707,7 +697,7 @@ void Move2() {
 
 }
 
-//Í¼Ïñ¡ª¡ª´òÓ¡µÚ¶ş¹ØµØÍ¼
+//å›¾åƒâ€”â€”æ‰“å°ç¬¬äºŒå…³åœ°å›¾
 void PrintSecondGame(void)
 {
 	for (int i = 0; i < 12; i++) {
@@ -718,30 +708,30 @@ void PrintSecondGame(void)
 
 			switch (map_second[i][j])
 			{
-			case 1: outtextxy(word_x, word_y, "Ç½"); break;
-			case 2: outtextxy(word_x, word_y, "ÎÒ"); break;
-			case 3: outtextxy(word_x, word_y, "¹Ü"); break;
-			case 4: outtextxy(word_x, word_y, "Ëø");	break;
-			case 5: outtextxy(word_x, word_y, "Ë®");	break;
-			case 93: outtextxy(word_x, word_y, "ÃÅ"); break;
-			case 91: outtextxy(word_x, word_y, "¶´"); break;
-			case 94: outtextxy(word_x, word_y, "¶¾");	break;
-			case 9: outtextxy(word_x, word_y, "µ¶"); break;
-			case 10: outtextxy(word_x, word_y, "·ç"); break;
+			case 1: outtextxy(word_x, word_y, "å¢™"); break;
+			case 2: outtextxy(word_x, word_y, "æˆ‘"); break;
+			case 3: outtextxy(word_x, word_y, "ç®¡"); break;
+			case 4: outtextxy(word_x, word_y, "é”");	break;
+			case 5: outtextxy(word_x, word_y, "æ°´");	break;
+			case 93: outtextxy(word_x, word_y, "é—¨"); break;
+			case 91: outtextxy(word_x, word_y, "æ´"); break;
+			case 94: outtextxy(word_x, word_y, "æ¯’");	break;
+			case 9: outtextxy(word_x, word_y, "åˆ€"); break;
+			case 10: outtextxy(word_x, word_y, "é£"); break;
 			default:break;
 			}
 		}
 	}
 
-	if (tool_wood == 1) { outtextxy(bag_x + 90 - textwidth("Ä¾°ô") / 2, bag_y + 60, "Ä¾°ô"); }
-	if (tool_knife == 1) { outtextxy(bag_x + 90 - textwidth("Ê¯¼âµ¶") / 2, bag_y + 100, "Ê¯¼âµ¶"); }
-	if (tool_torch == 1) { outtextxy(bag_x + 90 - textwidth("»ğ°Ñ") / 2, bag_y + 140, "»ğ°Ñ"); }
-	if (tool_key == 1) { outtextxy(bag_x + 90 - textwidth("Ô¿³×") / 2, bag_y + 180, "Ô¿³×"); }
+	if (tool_wood == 1) { outtextxy(bag_x + 90 - textwidth("æœ¨æ£’") / 2, bag_y + 60, "æœ¨æ£’"); }
+	if (tool_knife == 1) { outtextxy(bag_x + 90 - textwidth("çŸ³å°–åˆ€") / 2, bag_y + 100, "çŸ³å°–åˆ€"); }
+	if (tool_torch == 1) { outtextxy(bag_x + 90 - textwidth("ç«æŠŠ") / 2, bag_y + 140, "ç«æŠŠ"); }
+	if (tool_key == 1) { outtextxy(bag_x + 90 - textwidth("é’¥åŒ™") / 2, bag_y + 180, "é’¥åŒ™"); }
 	if (sign_begintext == 1)
 	{
 
-		outtextxy(left_distance + 4 * space, top_distance + 7 * space, "ÖÕÓÚÀ´µ½ÏÂË®µÀ£¬Ó­ÃæÒ»¹É³ôÆø,     Òª");
-		outtextxy(left_distance + 4 * space, top_distance + 8 * space, "¿ìµãÀë¿ªÕâ¶ù");
+		outtextxy(left_distance + 4 * space, top_distance + 7 * space, "ç»ˆäºæ¥åˆ°ä¸‹æ°´é“ï¼Œè¿é¢ä¸€è‚¡è‡­æ°”,     è¦");
+		outtextxy(left_distance + 4 * space, top_distance + 8 * space, "å¿«ç‚¹ç¦»å¼€è¿™å„¿");
 	}
 
 	ESC();
@@ -749,15 +739,14 @@ void PrintSecondGame(void)
 }
 
 
-#include "º¯ÊıÉùÃ÷.h" //º¯ÊıÉùÃ÷
 
-//µÚÈı¹Ø¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª
-//±êÖ¾±äÁ¿
-int sign_ice = 0; //µ±ÔÚË®ÅÔÊ¹ÓÃ Á½µãË® µÄÊ±ºò£¬±äÎª1
+//ç¬¬ä¸‰å…³â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”
+//æ ‡å¿—å˜é‡
+int sign_ice = 0; //å½“åœ¨æ°´æ—ä½¿ç”¨ ä¸¤ç‚¹æ°´ çš„æ—¶å€™ï¼Œå˜ä¸º1
 int sign_begintext3 = 0;
-int sign_twowater = 0; // Ì½Ë÷·ë
+int sign_twowater = 0; // æ¢ç´¢å†¯
 int sign_keytext = 0;
-int sign_1 = 0; //ÎªÁËÊ¹µÃprintsecondº¯ÊıÀïµÄsleepÊ¹ÓÃÒ»´Î
+int sign_1 = 0; //ä¸ºäº†ä½¿å¾—printsecondå‡½æ•°é‡Œçš„sleepä½¿ç”¨ä¸€æ¬¡
 int sign_keytext2 = 0;
 int map_3[33][33] = {
 	{0,0,0,0,0,		0,0,0,0,0,		0,0,0,0,0,	0,0,0,0,0,	0,0,0,0,0,		0,0,0,0,0,	0,0,0},
@@ -820,10 +809,10 @@ int jianqimap[3][3] = {
 };
 int MainGodGame(void) {
 
-	settextstyle(0, 0, "ËÎÌå");
+	settextstyle(0, 0, "å®‹ä½“");
 
 	cleardevice();
-	wo_y = 380;//"ÎÒ"µÄÏÖÔÚ×ø±ê
+	wo_y = 380;//"æˆ‘"çš„ç°åœ¨åæ ‡
 	wo_x = 190;
 	wo_X = wo_x;
 	wo_Y = wo_y;
@@ -836,7 +825,7 @@ int MainGodGame(void) {
 	return 0;
 }
 
-//ÏÉ½£¹ØÖ÷Ò³Ãæ
+//ä»™å‰‘å…³ä¸»é¡µé¢
 void GodBarrierView() {
 
 	space = 20;
@@ -845,13 +834,13 @@ void GodBarrierView() {
 
 	if (sign_begintext3 == 0) {
 		PrintGodGame();
-		outtextxy(wo_x, wo_y, "ÎÒ");
-		outtextxy(10, 10, "ÎÒÒ»ÓXĞÑí£¬°l¬F×Ô¼ºÉîÌ®¾³.....");
+		outtextxy(wo_x, wo_y, "æˆ‘");
+		outtextxy(10, 10, "æˆ‘ä¸€è¦ºé†’ä¾†ï¼Œç™¼ç¾è‡ªå·±æ·±è™•ç•°å¢ƒ.....");
 		Sleep(1000);
 		cleardevice();
 		PrintGodGame();
-		outtextxy(wo_x, wo_y, "ÎÒ");
-		outtextxy(10, 10, "ÅÔß…ÓĞÒ»°Ñ„¦......        °´ÏÂ [ ¿Õ¸ñ ] Ê°È¡");
+		outtextxy(wo_x, wo_y, "æˆ‘");
+		outtextxy(10, 10, "æ—é‚Šæœ‰ä¸€æŠŠåŠ......        æŒ‰ä¸‹ [ ç©ºæ ¼ ] æ‹¾å–");
 		Sleep(1000);
 		sign_begintext3 = 1;
 	}
@@ -862,7 +851,7 @@ void GodBarrierView() {
 	{
 		cleardevice();
 
-		BeginBatchDraw();//ÅúÁ¿»æÍ¼·À»­Ãæ¿¨¶Ù
+		BeginBatchDraw();//æ‰¹é‡ç»˜å›¾é˜²ç”»é¢å¡é¡¿
 
 		if (sign_ice == 0)
 		{
@@ -873,7 +862,7 @@ void GodBarrierView() {
 		{
 			PrintSecondGodGame();
 		}
-		outtextxy(wo_x, wo_y, "ÎÒ");
+		outtextxy(wo_x, wo_y, "æˆ‘");
 
 		EndBatchDraw();
 
@@ -890,43 +879,43 @@ void GodBarrierView() {
 	}
 }
 
-//-----------------------------------------------------------º¯Êı¶¨Òå-------------------------------------------------------------//
+//-----------------------------------------------------------å‡½æ•°å®šä¹‰-------------------------------------------------------------//
 
 void InformationOfGodBarrier() {
 
-	//½£
+	//å‰‘
 	if (GetAsyncKeyState(VK_SPACE) && wo_x == 190 && wo_y == 380)
 	{
-		mciSendString("open ./music/×ÖÒâ.mp3 ", 0, 0, 0);
-		mciSendString("play ./music/×ÖÒâ.mp3 from 0", 0, 0, 0);
-		outtextxy(10, 10, "ÎÒ£º»ñµÃÎäÆ÷ ½£ ");
+		mciSendString("open ./music/å­—æ„.mp3 ", 0, 0, 0);
+		mciSendString("play ./music/å­—æ„.mp3 from 0", 0, 0, 0);
+		outtextxy(10, 10, "æˆ‘ï¼šè·å¾—æ­¦å™¨ å‰‘ ");
 		map_3[13][1] = 0;
 		map_3_temp[13][1] = 0;
 		PrintGodGame();
 	}
 
-	//ÏÉ
+	//ä»™
 	if (GetAsyncKeyState(VK_SPACE) && wo_x == 410 && wo_y == 380)
 	{
-		outtextxy(10, 10, "ÏÉ£ºº¢×Ó£¬Äã½Kì¶íÀ²£¬ÎÒµÈÄãºÃ¾ÃÁË... ");
+		outtextxy(10, 10, "ä»™ï¼šå­©å­ï¼Œä½ çµ‚æ–¼ä¾†å•¦ï¼Œæˆ‘ç­‰ä½ å¥½ä¹…äº†... ");
 		Sleep(800);
-		outtextxy(10, 30, "ß@ÑeÊÇ¡¾ñT¼ÒÇf¡¿£¬·ë×ÖºÜÓĞÉîÒâÅ¶... ");
+		outtextxy(10, 30, "é€™è£¡æ˜¯ã€é¦®å®¶èŠã€‘ï¼Œå†¯å­—å¾ˆæœ‰æ·±æ„å“¦... ");
 		Sleep(800);
-		outtextxy(10, 50, "È¥°É£¬³ØÌÁÖĞÓĞÄãÏëÒªµÄ–|Î÷... ");
+		outtextxy(10, 50, "å»å§ï¼Œæ± å¡˜ä¸­æœ‰ä½ æƒ³è¦çš„æ±è¥¿... ");
 		Sleep(1500);
 		cleardevice();
 		PrintGodGame();
-		outtextxy(wo_x, wo_y, "ÎÒ");
-		outtextxy(10, 10, "ÎÒ:¸Ğµ½ºÜÒÉ»ó......µ«ß€ÊÇ›Q¶¨È¥¿´¿´ ");
+		outtextxy(wo_x, wo_y, "æˆ‘");
+		outtextxy(10, 10, "æˆ‘:æ„Ÿåˆ°å¾ˆç–‘æƒ‘......ä½†é‚„æ˜¯æ±ºå®šå»çœ‹çœ‹ ");
 		Sleep(1000);
 	}
 
-	//Ê¯Í·
+	//çŸ³å¤´
 	if (GetAsyncKeyState(VK_SPACE) &&
 		wo_x >= 210 && wo_y >= 320 &&
 		wo_x <= 250 && wo_y <= 360)
 	{
-		outtextxy(10, 10, "ß@ÊÇÆÕÍ¨µÄÊ¯î^...... ");
+		outtextxy(10, 10, "é€™æ˜¯æ™®é€šçš„çŸ³é ­...... ");
 
 		PrintGodGame();
 	}
@@ -934,77 +923,77 @@ void InformationOfGodBarrier() {
 		wo_x >= 210 && wo_y >= 400 &&
 		wo_x <= 250 && wo_y <= 440)
 	{
-		outtextxy(10, 10, "ß@ÊÇÆÕÍ¨µÄÊ¯î^...... ");
+		outtextxy(10, 10, "é€™æ˜¯æ™®é€šçš„çŸ³é ­...... ");
 
 		PrintGodGame();
 	}
 
-	//·ë
+	//å†¯
 	if (GetAsyncKeyState(VK_SPACE) && wo_x == 250 && wo_y == 220)
 	{
-		mciSendString("open ./music/×ÖÒâ.mp3 ", 0, 0, 0);
-		mciSendString("play ./music/×ÖÒâ.mp3 from 0", 0, 0, 0);
-		outtextxy(10, 10, "»ñµÃÙûºÍ Âí");
+		mciSendString("open ./music/å­—æ„.mp3 ", 0, 0, 0);
+		mciSendString("play ./music/å­—æ„.mp3 from 0", 0, 0, 0);
+		outtextxy(10, 10, "è·å¾—å†«å’Œ é©¬");
 		map_3[5][4] = 0;
 		map_3_temp[5][4] = 0;
 		PrintGodGame();
 		sign_twowater = 1;
 	}
 
-	//½á±ù
+	//ç»“å†°
 	if (sign_twowater == 1 &&
 		GetAsyncKeyState(VK_SPACE) &&
 		wo_x >= 450 && wo_y <= 460 &&
 		wo_x <= 590 && wo_y >= 260)
 	{
 		sign_ice = 1;
-		printf("½øÈë½á±ùº¯Êı");
+		printf("è¿›å…¥ç»“å†°å‡½æ•°");
 		PrintSecondGodGame();
-		outtextxy(wo_x, wo_y, "ÎÒ");
+		outtextxy(wo_x, wo_y, "æˆ‘");
 		Sleep(800);
-		outtextxy(10, 10, "ÎÒ£ºÓÃ¸Õ²Å»ñµÃµÄ¡°Ùû¡±ºÍÇ°ÃæµÄ¡°Ë®¡±½áºÏ£¬¾¹È»ÈÃË®±ä³ÉÁË±ù£¬Õâ¾ÍÊÇÏÉ½çÂğ£¿ ");
+		outtextxy(10, 10, "æˆ‘ï¼šç”¨åˆšæ‰è·å¾—çš„â€œå†«â€å’Œå‰é¢çš„â€œæ°´â€ç»“åˆï¼Œç«Ÿç„¶è®©æ°´å˜æˆäº†å†°ï¼Œè¿™å°±æ˜¯ä»™ç•Œå—ï¼Ÿ ");
 		PrintSecondGodGame();
 	}
 
-	//±¦Ïä
+	//å®ç®±
 	if (GetAsyncKeyState(VK_SPACE) &&
 		wo_x >= 610 && wo_y <= 420 &&
 		wo_x <= 690 && wo_y >= 340)
 	{
 		sign_keytext = 1;
 		PrintSecondGodGame();
-		outtextxy(wo_x, wo_y, "ÎÒ");
+		outtextxy(wo_x, wo_y, "æˆ‘");
 	}
 
-	//É¾ ²» ×Ö
+	//åˆ  ä¸ å­—
 	if (GetAsyncKeyState(VK_BACK) &&
 		wo_x == 370 && wo_y == 60)
 	{
-		mciSendString("open ./music/É¾.mp3 ", 0, 0, 0); //·Å²»³öÀ´
-		mciSendString("play ./music/É¾.mp3 from 0", 0, 0, 0);
-		sign_keytext2 = 1; //°´ÏÂÉ¾³ı¼üºó²»×ÖÏûÊ§
+		mciSendString("open ./music/åˆ .mp3 ", 0, 0, 0); //æ”¾ä¸å‡ºæ¥
+		mciSendString("play ./music/åˆ .mp3 from 0", 0, 0, 0);
+		sign_keytext2 = 1; //æŒ‰ä¸‹åˆ é™¤é”®åä¸å­—æ¶ˆå¤±
 
 		cleardevice();
 		PrintSecondGodGame();
-		outtextxy(wo_x, wo_y, "ÎÒ");
-		rectangle(12, 44, 552, 67); //·½¿ò
-		mciSendString("open ./music/×ÖÒâ.mp3 ", 0, 0, 0);
-		mciSendString("play ./music/×ÖÒâ.mp3 from 0", 0, 0, 0);
+		outtextxy(wo_x, wo_y, "æˆ‘");
+		rectangle(12, 44, 552, 67); //æ–¹æ¡†
+		mciSendString("open ./music/å­—æ„.mp3 ", 0, 0, 0);
+		mciSendString("play ./music/å­—æ„.mp3 from 0", 0, 0, 0);
 		Sleep(1000);
 
 
 		sign_keytext = 0;
 		cleardevice();
 		PrintSecondGodGame();
-		outtextxy(10, 10, "ÏÉ£ºÄêİpÈË£¬¹§Ï²ÄãÁ•µÃÃØĞg¡£ ");
+		outtextxy(10, 10, "ä»™ï¼šå¹´è¼•äººï¼Œæ­å–œä½ ç¿’å¾—ç§˜è¡“ã€‚ ");
 		Sleep(1000);
-		outtextxy(10, 30, "¬FÈç½ñÑıÄ§™MĞĞ£¬Œ§ÖÂÉúì`‰TÌ¿¡¢Ãñ²»ÁÄÉú...... ");
+		outtextxy(10, 30, "ç¾å¦‚ä»Šå¦–é­”æ©«è¡Œï¼Œå°è‡´ç”Ÿéˆå¡—ç‚­ã€æ°‘ä¸èŠç”Ÿ...... ");
 		Sleep(1000);
-		outtextxy(10, 50, "ÊÇßx“ñ½µÑı³ıÄ§Õü¾ÈÉnÉú£¬Òà»òÊÇë[ÄäÉ½ÁÖÖ®ÖĞ£¬²»†–ÊÀÊÂ...");
+		outtextxy(10, 50, "æ˜¯é¸æ“‡é™å¦–é™¤é­”æ‹¯æ•‘è’¼ç”Ÿï¼Œäº¦æˆ–æ˜¯éš±åŒ¿å±±æ—ä¹‹ä¸­ï¼Œä¸å•ä¸–äº‹...");
 		Sleep(1000);
-		outtextxy(10, 70, "Ò»ÇĞßx“ñ½KŒ¢È¡›Qì¶Äã...º¢×Ó£¬ÔÛ‚ƒÓĞ¾‰ÔÙ•ş...");
-		outtextxy(810, 380, "ÎÒ");
-		outtextxy(850, 380, "¹§Ï²Äã´³¹Ø³É¹¦£¡");
+		outtextxy(10, 70, "ä¸€åˆ‡é¸æ“‡çµ‚å°‡å–æ±ºæ–¼ä½ ...å­©å­ï¼Œå’±å€‘æœ‰ç·£å†æœƒ...");
+		outtextxy(810, 380, "æˆ‘");
+		outtextxy(850, 380, "æ­å–œä½ é—¯å…³æˆåŠŸï¼");
 		Sleep(2000);
 
 
@@ -1016,7 +1005,7 @@ void InformationOfGodBarrier() {
 
 }
 
-//ÒÆ¶¯¹¦ÄÜ
+//ç§»åŠ¨åŠŸèƒ½
 void Move_3()
 {
 
@@ -1026,10 +1015,10 @@ void Move_3()
 
 	switch (key)
 	{
-	case 72:  //¡ü£ºASCII
+	case 72:  //â†‘ï¼šASCII
 	case 'w':
 	case 'W':
-		//ÅĞ¶Ï"ÎÒ"ĞÂ×ø±êËùÔÚÊı×éÔªËØµÄÖµ(ÓÃÏÖÔÚ×ø±ê±íÊ¾)£ºÈç¹ûÊÇ0£¬Ôò¿ÉÒÆ¶¯£»·ñÔò²»¶¯
+		//åˆ¤æ–­"æˆ‘"æ–°åæ ‡æ‰€åœ¨æ•°ç»„å…ƒç´ çš„å€¼(ç”¨ç°åœ¨åæ ‡è¡¨ç¤º)ï¼šå¦‚æœæ˜¯0ï¼Œåˆ™å¯ç§»åŠ¨ï¼›å¦åˆ™ä¸åŠ¨
 		if (map_3[(wo_y - space - top_distance) / space][(wo_x - left_distance) / space] == 0 ||
 			map_3[(wo_y - space - top_distance) / space][(wo_x - left_distance) / space] == 7 ||
 			map_3[(wo_y - space - top_distance) / space][(wo_x - left_distance) / space] == 19 ||
@@ -1093,10 +1082,10 @@ void Move_3_ice() {
 
 	switch (key)
 	{
-	case 72:  //¡ü£ºASCII
+	case 72:  //â†‘ï¼šASCII
 	case 'w':
 	case 'W':
-		//ÅĞ¶Ï"ÎÒ"ĞÂ×ø±êËùÔÚÊı×éÔªËØµÄÖµ(ÓÃÏÖÔÚ×ø±ê±íÊ¾)£ºÈç¹ûÊÇ0£¬Ôò¿ÉÒÆ¶¯£»·ñÔò²»¶¯
+		//åˆ¤æ–­"æˆ‘"æ–°åæ ‡æ‰€åœ¨æ•°ç»„å…ƒç´ çš„å€¼(ç”¨ç°åœ¨åæ ‡è¡¨ç¤º)ï¼šå¦‚æœæ˜¯0ï¼Œåˆ™å¯ç§»åŠ¨ï¼›å¦åˆ™ä¸åŠ¨
 		if (map_3_temp[(wo_y - space - top_distance) / space][(wo_x - left_distance) / space] == 0 ||
 			map_3_temp[(wo_y - space - top_distance) / space][(wo_x - left_distance) / space] == 7 ||
 			map_3_temp[(wo_y - space - top_distance) / space][(wo_x - left_distance) / space] == 19 ||
@@ -1164,24 +1153,24 @@ void PrintGodGame()
 			switch (map_3[i][j])
 
 			{
-			case 1:outtextxy(word_x, word_y, "ÔÆ"); break;
-			case 2:outtextxy(word_x, word_y, "Äñ"); break;
-			case 3:outtextxy(word_x, word_y, "Ê÷"); break;
-			case 4:outtextxy(word_x, word_y, "Ä¾"); break;
-			case 5:outtextxy(word_x, word_y, "·¿"); break;
-			case 6:outtextxy(word_x, word_y, "²İ"); break;
-			case 7:outtextxy(word_x, word_y, "ÃÅ"); break;
-			case 8:outtextxy(word_x, word_y, "Â·"); break;
-			case 9:outtextxy(word_x, word_y, "Ë®"); break;
-			case 10:outtextxy(word_x, word_y, "Ïä"); break;
-			case 11:outtextxy(word_x, word_y, "±¦"); break;
-			case 12:outtextxy(word_x, word_y, "ÏÉ"); break;
-			case 13:outtextxy(word_x, word_y, "Ê¯"); break;
-			case 14:outtextxy(word_x, word_y, "½£"); break;
-			case 16:outtextxy(word_x, word_y, "·ë"); break;
-			case 17:outtextxy(word_x, word_y, "¼Ò"); break;
-			case 18:outtextxy(word_x, word_y, "×³"); break;
-			case 19:outtextxy(word_x, word_y, "±ù"); break;
+			case 1:outtextxy(word_x, word_y, "äº‘"); break;
+			case 2:outtextxy(word_x, word_y, "é¸Ÿ"); break;
+			case 3:outtextxy(word_x, word_y, "æ ‘"); break;
+			case 4:outtextxy(word_x, word_y, "æœ¨"); break;
+			case 5:outtextxy(word_x, word_y, "æˆ¿"); break;
+			case 6:outtextxy(word_x, word_y, "è‰"); break;
+			case 7:outtextxy(word_x, word_y, "é—¨"); break;
+			case 8:outtextxy(word_x, word_y, "è·¯"); break;
+			case 9:outtextxy(word_x, word_y, "æ°´"); break;
+			case 10:outtextxy(word_x, word_y, "ç®±"); break;
+			case 11:outtextxy(word_x, word_y, "å®"); break;
+			case 12:outtextxy(word_x, word_y, "ä»™"); break;
+			case 13:outtextxy(word_x, word_y, "çŸ³"); break;
+			case 14:outtextxy(word_x, word_y, "å‰‘"); break;
+			case 16:outtextxy(word_x, word_y, "å†¯"); break;
+			case 17:outtextxy(word_x, word_y, "å®¶"); break;
+			case 18:outtextxy(word_x, word_y, "å£®"); break;
+			case 19:outtextxy(word_x, word_y, "å†°"); break;
 			}
 		}
 	}
@@ -1196,39 +1185,39 @@ void PrintSecondGodGame() {
 
 			switch (map_3_temp[i][j]) {
 			case 0:outtextxy(word_x, word_y, '\0'); break;
-			case 1:outtextxy(word_x, word_y, "ÔÆ"); break;
-			case 2:outtextxy(word_x, word_y, "Äñ"); break;
-			case 3:outtextxy(word_x, word_y, "Ê÷"); break;
-			case 4:outtextxy(word_x, word_y, "Ä¾"); break;
-			case 5:outtextxy(word_x, word_y, "·¿");	break;
-			case 6:outtextxy(word_x, word_y, "²İ"); break;
-			case 7:outtextxy(word_x, word_y, "ÃÅ"); break;
-			case 8:outtextxy(word_x, word_y, "Â·"); break;
-			case 9:outtextxy(word_x, word_y, "Ë®"); break;
-			case 10:outtextxy(word_x, word_y, "Ïä"); break;
-			case 11:outtextxy(word_x, word_y, "±¦"); break;
-			case 12:outtextxy(word_x, word_y, "ÏÉ"); break;
-			case 13:outtextxy(word_x, word_y, "Ê¯"); break;
-			case 14:outtextxy(word_x, word_y, "½£"); break;
-			case 16:outtextxy(word_x, word_y, "·ë");	break;
-			case 17:outtextxy(word_x, word_y, "¼Ò"); break;
-			case 18:outtextxy(word_x, word_y, "×³"); break;
-			case 19:outtextxy(word_x, word_y, "±ù"); break;
+			case 1:outtextxy(word_x, word_y, "äº‘"); break;
+			case 2:outtextxy(word_x, word_y, "é¸Ÿ"); break;
+			case 3:outtextxy(word_x, word_y, "æ ‘"); break;
+			case 4:outtextxy(word_x, word_y, "æœ¨"); break;
+			case 5:outtextxy(word_x, word_y, "æˆ¿");	break;
+			case 6:outtextxy(word_x, word_y, "è‰"); break;
+			case 7:outtextxy(word_x, word_y, "é—¨"); break;
+			case 8:outtextxy(word_x, word_y, "è·¯"); break;
+			case 9:outtextxy(word_x, word_y, "æ°´"); break;
+			case 10:outtextxy(word_x, word_y, "ç®±"); break;
+			case 11:outtextxy(word_x, word_y, "å®"); break;
+			case 12:outtextxy(word_x, word_y, "ä»™"); break;
+			case 13:outtextxy(word_x, word_y, "çŸ³"); break;
+			case 14:outtextxy(word_x, word_y, "å‰‘"); break;
+			case 16:outtextxy(word_x, word_y, "å†¯");	break;
+			case 17:outtextxy(word_x, word_y, "å®¶"); break;
+			case 18:outtextxy(word_x, word_y, "å£®"); break;
+			case 19:outtextxy(word_x, word_y, "å†°"); break;
 			}
 		}
 	}
 
 	if (sign_keytext == 1)
 	{
-		outtextxy(10, 3, "ß@ÊÇÒ»±¾¡¾Îä¹¦ÃØ¼®¡¿£¬ÉÏÃæÓ›İdÁËÒ»Ì×„¦·¨......");
+		outtextxy(10, 3, "é€™æ˜¯ä¸€æœ¬ã€æ­¦åŠŸç§˜ç±ã€‘ï¼Œä¸Šé¢è¨˜è¼‰äº†ä¸€å¥—åŠæ³•......");
 		if (sign_1 == 0) { Sleep(1000); }
-		outtextxy(10, 23, "ÔÚ´òé_ÃØ¼®µÄÍ¬•r£¬„¦ÔÚÎÒµÄËÄÖÜ±PĞı£¬×îááßMÈëÁËÎÒµÄówƒÈ...... ");
+		outtextxy(10, 23, "åœ¨æ‰“é–‹ç§˜ç±çš„åŒæ™‚ï¼ŒåŠåœ¨æˆ‘çš„å››å‘¨ç›¤æ—‹ï¼Œæœ€å¾Œé€²å…¥äº†æˆ‘çš„é«”å…§...... ");
 		if (sign_1 == 0) { Sleep(1000); }
-		outtextxy(10, 43, "Í¬•r¸Ğµ½Ò»¹ÉŠ´óµÄÁ¦Á¿ÔÚówƒÈÁ÷„Ó£¬ÎÒ  ÄÜÈÌÊÜÖøß@¹ÉÁ¦Á¿...... ");
+		outtextxy(10, 43, "åŒæ™‚æ„Ÿåˆ°ä¸€è‚¡å¼·å¤§çš„åŠ›é‡åœ¨é«”å…§æµå‹•ï¼Œæˆ‘  èƒ½å¿å—è‘—é€™è‚¡åŠ›é‡...... ");
 
-		if (sign_keytext2 == 0) //°´ÏÂÉ¾³ı¼üÖ®ºó¾Í²»»áÏÔÊ¾ ²» ×Ö
+		if (sign_keytext2 == 0) //æŒ‰ä¸‹åˆ é™¤é”®ä¹‹åå°±ä¸ä¼šæ˜¾ç¤º ä¸ å­—
 		{
-			outtextxy(298, 43, "²»");
+			outtextxy(298, 43, "ä¸");
 		}
 		else /*{ Sleep(1000); cleardevice(); }*/;
 
@@ -1242,9 +1231,9 @@ void SwordView() {
 			switch (jianqimap[j][i]) {
 			case 0:outtextxy(400 + j * 30, 30 + i * 30, "\0");
 				break;
-			case 2:outtextxy(400 + j * 30, 300 + i * 30, "½£");
+			case 2:outtextxy(400 + j * 30, 300 + i * 30, "å‰‘");
 				break;
-			case 1:outtextxy(400 + j * 30, 300 + i * 30, "ÎÒ");
+			case 1:outtextxy(400 + j * 30, 300 + i * 30, "æˆ‘");
 				break;
 			}
 		}
