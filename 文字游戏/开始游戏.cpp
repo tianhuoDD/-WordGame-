@@ -1,29 +1,29 @@
-#include "º¯ÊýÉùÃ÷.h" //º¯ÊýÉùÃ÷
+#include "å‡½æ•°å£°æ˜Ž.h" //å‡½æ•°å£°æ˜Ž
 
-//Ò»¡¢¿ªÊ¼ÓÎÏ·£¨½ø¶È½çÃæ£©
+//ä¸€ã€å¼€å§‹æ¸¸æˆï¼ˆè¿›åº¦ç•Œé¢ï¼‰
 int ProcessView() {
 	cleardevice();
-	ButtonProcess1(440, 220, 120, 40);//°´Å¥µÄx y w h
+	ButtonProcess1(440, 220, 120, 40);//æŒ‰é’®çš„x y w h
 	ButtonProcess2(440, 300, 120, 40);
 	ButtonProcess3(440, 100, 120, 40);
 	ExMessage msg;
 	while (true)
 	{
-		if (peekmessage(&msg, EM_MOUSE))//Èç¹ûÓÐÊó±êÏûÏ¢£¬Ôò·µ»ØÕæ£¬·´Ö®Ôò¼Ù
+		if (peekmessage(&msg, EM_MOUSE))//å¦‚æžœæœ‰é¼ æ ‡æ¶ˆæ¯ï¼Œåˆ™è¿”å›žçœŸï¼Œåä¹‹åˆ™å‡
 		{
 			switch (msg.message)
 			{
 			case WM_LBUTTONDOWN:
 				if (msg.x >= 440 && msg.x <= 440 + 120 && msg.y >= 220 && msg.y <= 220 + 40)
 				{
-					//·Åº¯Êý £¨½øÈëÐÂµÄÓÎÏ·£©
+					//æ”¾å‡½æ•° ï¼ˆè¿›å…¥æ–°çš„æ¸¸æˆï¼‰
 					FirstBarrierView();
 					break;
 				}
 
 				if (msg.x >= 440 && msg.x <= 440 + 120 && msg.y >= 300 && msg.y <= 300 + 40)
 				{
-					//·Åº¯Êý void PrintMenuLoad();£¨½øÈë´æµµ½çÃæ£©
+					//æ”¾å‡½æ•° void PrintMenuLoad();ï¼ˆè¿›å…¥å­˜æ¡£ç•Œé¢ï¼‰
 					ChooseArchiveViewInMenu();
 					break;
 				}
@@ -41,10 +41,10 @@ int ProcessView() {
 	return 0;
 }
 
-//1.2.1 ¶Áµµ½çÃæ
+//1.2.1 è¯»æ¡£ç•Œé¢
 int ChooseArchiveViewInGame() {
 	cleardevice();
-	BottonLoad1(440, 150, 120, 40);//°´Å¥µÄx y w h
+	BottonLoad1(440, 150, 120, 40);//æŒ‰é’®çš„x y w h
 	BottonLoad2(670, 160, 120, 40);
 	BottonLoad3(440, 250, 120, 40);
 	BottonLoad4(440, 320, 120, 40);
@@ -54,42 +54,42 @@ int ChooseArchiveViewInGame() {
 	ExMessage msg;
 	while (true)
 	{
-		if (peekmessage(&msg, EM_MOUSE))//Èç¹ûÓÐÊó±êÏûÏ¢£¬Ôò·µ»ØÕæ£¬·´Ö®Ôò¼Ù
+		if (peekmessage(&msg, EM_MOUSE))//å¦‚æžœæœ‰é¼ æ ‡æ¶ˆæ¯ï¼Œåˆ™è¿”å›žçœŸï¼Œåä¹‹åˆ™å‡
 		{
 			switch (msg.message)
 			{
 			case WM_LBUTTONDOWN:
 				if (msg.x >= 440 && msg.x <= 440 + 120 && msg.y >= 150 && msg.y <= 150 + 40)
 				{
-					//ÎÞÐè²Ù×÷
+					//æ— éœ€æ“ä½œ
 					break;
 				}
 
 				if (msg.x >= 620 && msg.x <= 670 + 120 && msg.y >= 160 && msg.y <= 160 + 40)
 				{
-					//ÎÞÐè²Ù×÷
+					//æ— éœ€æ“ä½œ
 					break;
 				}
 
 				if (msg.x >= 440 && msg.x <= 440 + 120 && msg.y >= 250 && msg.y <= 250 + 40)
 				{
-					//ÎÞÐè²Ù×÷
+					//æ— éœ€æ“ä½œ
 					break;
 				}
 				if (msg.x >= 440 && msg.x <= 440 + 120 && msg.y >= 320 && msg.y <= 320 + 40)
 				{
-					//ÎÞÐè²Ù×÷
+					//æ— éœ€æ“ä½œ
 					break;
 				}
 				if (msg.x >= 440 && msg.x <= 440 + 120 && msg.y >= 390 && msg.y <= 390 + 40)
 				{
-					//ÎÞÐè²Ù×÷
+					//æ— éœ€æ“ä½œ
 					break;
 				}
 
 				if (msg.x >= 440 && msg.x <= 440 + 120 && msg.y >= 460 && msg.y <= 460 + 40)
 				{
-					//·Åº¯Êý (·µ»ØÔÝÍ£½çÃæ);
+					//æ”¾å‡½æ•° (è¿”å›žæš‚åœç•Œé¢);
 					PauseView();
 					break;
 				}
@@ -106,10 +106,10 @@ int ChooseArchiveViewInGame() {
 	return 0;
 }
 
-// ¶Áµµ½çÃæ
+// è¯»æ¡£ç•Œé¢
 int ChooseArchiveViewInMenu() {
 	cleardevice();
-	BottonLoad1(440, 150, 120, 40);//°´Å¥µÄx y w h
+	BottonLoad1(440, 150, 120, 40);//æŒ‰é’®çš„x y w h
 	BottonLoad2(670, 160, 120, 40);
 	BottonLoad3(440, 250, 120, 40);
 	BottonLoad4(440, 320, 120, 40);
@@ -119,42 +119,42 @@ int ChooseArchiveViewInMenu() {
 	ExMessage msg;
 	while (true)
 	{
-		if (peekmessage(&msg, EM_MOUSE))//Èç¹ûÓÐÊó±êÏûÏ¢£¬Ôò·µ»ØÕæ£¬·´Ö®Ôò¼Ù
+		if (peekmessage(&msg, EM_MOUSE))//å¦‚æžœæœ‰é¼ æ ‡æ¶ˆæ¯ï¼Œåˆ™è¿”å›žçœŸï¼Œåä¹‹åˆ™å‡
 		{
 			switch (msg.message)
 			{
 			case WM_LBUTTONDOWN:
 				if (msg.x >= 440 && msg.x <= 440 + 120 && msg.y >= 150 && msg.y <= 150 + 40)
 				{
-					//ÎÞÐè²Ù×÷
+					//æ— éœ€æ“ä½œ
 					break;
 				}
 
 				if (msg.x >= 620 && msg.x <= 670 + 120 && msg.y >= 160 && msg.y <= 160 + 40)
 				{
-					//ÎÞÐè²Ù×÷
+					//æ— éœ€æ“ä½œ
 					break;
 				}
 
 				if (msg.x >= 440 && msg.x <= 440 + 120 && msg.y >= 250 && msg.y <= 250 + 40)
 				{
-					//ÎÞÐè²Ù×÷
+					//æ— éœ€æ“ä½œ
 					break;
 				}
 				if (msg.x >= 440 && msg.x <= 440 + 120 && msg.y >= 320 && msg.y <= 320 + 40)
 				{
-					//ÎÞÐè²Ù×÷
+					//æ— éœ€æ“ä½œ
 					break;
 				}
 				if (msg.x >= 440 && msg.x <= 440 + 120 && msg.y >= 390 && msg.y <= 390 + 40)
 				{
-					//ÎÞÐè²Ù×÷
+					//æ— éœ€æ“ä½œ
 					break;
 				}
 
 				if (msg.x >= 440 && msg.x <= 440 + 120 && msg.y >= 460 && msg.y <= 460 + 40)
 				{
-					//·Åº¯Êý (·µ»ØÔÝÍ£½çÃæ);
+					//æ”¾å‡½æ•° (è¿”å›žæš‚åœç•Œé¢);
 					ProcessView();
 					break;
 				}
@@ -171,49 +171,49 @@ int ChooseArchiveViewInMenu() {
 	return 0;
 }
 
-//ÏÉÏÀ¹Ø¿¨
+//ä»™ä¾ å…³å¡
 int SuccessSkipView() {
 
 	cleardevice();
-	ButtonSkip1(420, 215, 160, 40);//°´Å¥µÄx y w h
+	ButtonSkip1(420, 215, 160, 40);//æŒ‰é’®çš„x y w h
 	ButtonSkip2(430, 290, 140, 40);
 	ButtonSkip3(430, 365, 140, 40);
 	ButtonSkip4(440, 440, 120, 40);
 
 	settextstyle(40, 0, "Zpix");
-	outtextxy(325, 75, "¹§Ï²ÄãÍ¨¹ýÖ÷Ïß¹Ø¿¨£¡");
-	outtextxy(300, 140, "ÇëÑ¡ÔñÊÇ·ñÓÎÍæ²Êµ°¹Ø¿¨");
+	outtextxy(325, 75, "æ­å–œä½ é€šè¿‡ä¸»çº¿å…³å¡ï¼");
+	outtextxy(300, 140, "è¯·é€‰æ‹©æ˜¯å¦æ¸¸çŽ©å½©è›‹å…³å¡");
 
-	mciSendString("open ./music/¹ý¹Ø.mp3 ", 0, 0, 0);
-	mciSendString("play ./music/¹ý¹Ø.mp3 from 0", 0, 0, 0);
+	mciSendString("open ./music/è¿‡å…³.mp3 ", 0, 0, 0);
+	mciSendString("play ./music/è¿‡å…³.mp3 ", 0, 0, 0);
 
 	ExMessage msg;
 	while (true)
 	{
-		if (peekmessage(&msg, EM_MOUSE))//Èç¹ûÓÐÊó±êÏûÏ¢£¬Ôò·µ»ØÕæ£¬·´Ö®Ôò¼Ù
+		if (peekmessage(&msg, EM_MOUSE))//å¦‚æžœæœ‰é¼ æ ‡æ¶ˆæ¯ï¼Œåˆ™è¿”å›žçœŸï¼Œåä¹‹åˆ™å‡
 		{
 			switch (msg.message)
 			{
 			case WM_LBUTTONDOWN:
 				if (msg.x >= 420 && msg.x <= 420 + 160 && msg.y >= 215 && msg.y <= 215 + 40)
 				{
-					//·Åº¯Êý ½øÈëÏÉÏÀ¹Ø¿¨
+					//æ”¾å‡½æ•° è¿›å…¥ä»™ä¾ å…³å¡
 					MainGodGame();
 
 				}
 				if (msg.x >= 430 && msg.x <= 430 + 140 && msg.y >= 290 && msg.y <= 290 + 40)
 				{
-					//·Åº¯Êý ·µ»ØµÚÒ»¹Ø
+					//æ”¾å‡½æ•° è¿”å›žç¬¬ä¸€å…³
 					FirstBarrierView();
 				}
 				if (msg.x >= 430 && msg.x <= 430 + 140 && msg.y >= 365 && msg.y <= 365 + 40)
 				{
-					//·Åº¯Êý ·µ»ØµÚ¶þ¹Ø
+					//æ”¾å‡½æ•° è¿”å›žç¬¬äºŒå…³
 					MainSecondBarrier();
 				}
 				if (msg.x >= 440 && msg.x <= 440 + 120 && msg.y >= 440 && msg.y <= 440 + 40)
 				{
-					//·Åº¯Êý ·µ»Ø²Ëµ¥
+					//æ”¾å‡½æ•° è¿”å›žèœå•
 					MenuView();
 				}
 			default:
@@ -228,31 +228,32 @@ int SuccessSkipView() {
 	return 0;
 }
 
-//ÆÕÍ¨¹ØµÄÍ¨¹Ø½çÃæ
+//æ™®é€šå…³çš„é€šå…³ç•Œé¢
 int CommonPassView()
 {
-	//´òÓ¡ÉèÖÃ½çÃæ
+	//æ‰“å°è®¾ç½®ç•Œé¢
 	cleardevice();
 
-	button(408, 420, 150, 50);//¾ØÐÎ°´Å¥Î»ÖÃ
-	//ÎÄ×ÖÎ»ÖÃ
+	button(408, 420, 150, 50);//çŸ©å½¢æŒ‰é’®ä½ç½®
+	//æ–‡å­—ä½ç½®
 	settextcolor(WHITE);
 	settextstyle(30, 0, "Zpix");
 	setbkmode(TRANSPARENT);
-	outtextxy(344, 130, "ÓÎÏ·Ä¿Ç°¾Í×öµ½ÕâÀï");
-	outtextxy(350, 180, "ÄãÒÑ¾­ÍêÈ«Í¨¹ØÀ²£¡");
+	outtextxy(344, 130, "æ¸¸æˆç›®å‰å°±åšåˆ°è¿™é‡Œ");
+	outtextxy(350, 180, "ä½ å·²ç»å®Œå…¨é€šå…³å•¦ï¼");
 	settextcolor(RGB(214, 157, 133));
 	settextstyle(50, 0, "Zpix");
-	outtextxy(355, 230, "¸ÐÐ»ÄãµÄÓÎÍæ£¡");
+	outtextxy(355, 230, "æ„Ÿè°¢ä½ çš„æ¸¸çŽ©ï¼");
 	settextcolor(WHITE);
 	settextstyle(30, 0, "Zpix");
-	outtextxy(332, 300, "ÓÐÈÎºÎÏë·¨»ò±¦¹óÒâ¼û£¬");
-	outtextxy(380, 350, "ÇëÁªÏµxxx·´À¡¡£");
+	outtextxy(332, 300, "æœ‰ä»»ä½•æƒ³æ³•æˆ–å®è´µæ„è§ï¼Œ");
+	outtextxy(380, 350, "è¯·è”ç³»xxxåé¦ˆã€‚");
 
-	mciSendString("open ./music/¹ý¹Ø.mp3 ", 0, 0, 0);
-	mciSendString("play ./music/¹ý¹Ø.mp3 from 0", 0, 0, 0);
+	mciSendString("open ./music/é€šå…³.mp3 ", 0, 0, 0);
+	mciSendString("play ./music/é€šå…³.mp3 ", 0, 0, 0);
 
-	//Êó±êµã»÷°´Å¥½øÐÐ½»»¥
+
+	//é¼ æ ‡ç‚¹å‡»æŒ‰é’®è¿›è¡Œäº¤äº’
 	ExMessage msg;
 	while (1)
 	{
@@ -263,7 +264,7 @@ int CommonPassView()
 			case WM_LBUTTONDOWN:
 				if (msg.x >= 410 && msg.x <= 562 && msg.y >= 420 && msg.y <= 473)
 				{
-					//·µ»ØÖ÷²Ëµ¥
+					//è¿”å›žä¸»èœå•
 					MenuView();
 				}
 				break;
@@ -279,10 +280,10 @@ int CommonPassView()
 	return 0;
 }
 
-//ÔÝÍ£½çÃæ
+//æš‚åœç•Œé¢
 int PauseView() {
 	cleardevice();
-	ButtonPause1(440, 200, 120, 40);//°´Å¥µÄx y w h
+	ButtonPause1(440, 200, 120, 40);//æŒ‰é’®çš„x y w h
 	ButtonPause2(440, 260, 120, 40);
 	ButtonPause3(440, 320, 120, 40);
 	ButtonPause4(440, 380, 120, 40);
@@ -290,35 +291,35 @@ int PauseView() {
 	ExMessage msg;
 	while (true)
 	{
-		if (peekmessage(&msg, EM_MOUSE))//Èç¹ûÓÐÊó±êÏûÏ¢£¬Ôò·µ»ØÕæ£¬·´Ö®Ôò¼Ù
+		if (peekmessage(&msg, EM_MOUSE))//å¦‚æžœæœ‰é¼ æ ‡æ¶ˆæ¯ï¼Œåˆ™è¿”å›žçœŸï¼Œåä¹‹åˆ™å‡
 		{
 			switch (msg.message)
 			{
 			case WM_LBUTTONDOWN:
 				if (msg.x >= 440 && msg.x <= 440 + 120 && msg.y >= 200 && msg.y <= 200 + 40)
 				{
-					//·Åº¯Êý £¨·µ»Ø¸Õ¸ÕµÄÓÎÏ·½çÃæ£©
+					//æ”¾å‡½æ•° ï¼ˆè¿”å›žåˆšåˆšçš„æ¸¸æˆç•Œé¢ï¼‰
 					FirstBarrierView();
 					break;
 				}
 
 				if (msg.x >= 440 && msg.x <= 440 + 120 && msg.y >= 260 && msg.y <= 260 + 40)
 				{
-					//·Åº¯Êý void PrintArchive(); ½øÈë ±£´æ´æµµ ½çÃæ
+					//æ”¾å‡½æ•° void PrintArchive(); è¿›å…¥ ä¿å­˜å­˜æ¡£ ç•Œé¢
 					SaveArchiveView();
 					break;
 				}
 
 				if (msg.x >= 440 && msg.x <= 440 + 120 && msg.y >= 320 && msg.y <= 320 + 40)
 				{
-					//·Åº¯Êý void PrintGameLoad();
+					//æ”¾å‡½æ•° void PrintGameLoad();
 					ChooseArchiveViewInGame();
 					break;
 				}
 
 				if (msg.x >= 440 && msg.x <= 440 + 120 && msg.y >= 380 && msg.y <= 380 + 40)
 				{
-					//·Åº¯Êý rintMenu();
+					//æ”¾å‡½æ•° rintMenu();
 					int delete_temp = 1;
 					MenuView();
 					break;
@@ -336,10 +337,10 @@ int PauseView() {
 	return 0;
 }
 
-// ´ÓÔÝÍ£½çÃæ ½øÈë ±£´æ´æµµ ½çÃæ
+// ä»Žæš‚åœç•Œé¢ è¿›å…¥ ä¿å­˜å­˜æ¡£ ç•Œé¢
 int SaveArchiveView() {
 	cleardevice();
-	BottonArchive1(440, 150, 120, 40);//°´Å¥µÄx y w h
+	BottonArchive1(440, 150, 120, 40);//æŒ‰é’®çš„x y w h
 	BottonArchive2(620, 160, 120, 40);
 	BottonArchive3(440, 250, 120, 40);
 	BottonArchive4(440, 320, 120, 40);
@@ -349,43 +350,43 @@ int SaveArchiveView() {
 	ExMessage msg;
 	while (true)
 	{
-		if (peekmessage(&msg, EM_MOUSE))//Èç¹ûÓÐÊó±êÏûÏ¢£¬Ôò·µ»ØÕæ£¬·´Ö®Ôò¼Ù
+		if (peekmessage(&msg, EM_MOUSE))//å¦‚æžœæœ‰é¼ æ ‡æ¶ˆæ¯ï¼Œåˆ™è¿”å›žçœŸï¼Œåä¹‹åˆ™å‡
 		{
 			switch (msg.message)
 			{
 			case WM_LBUTTONDOWN:
 				if (msg.x >= 440 && msg.x <= 440 + 120 && msg.y >= 150 && msg.y <= 150 + 40)
 				{
-					//ÎÞÐè²Ù×÷
+					//æ— éœ€æ“ä½œ
 					break;
 				}
 
 				if (msg.x >= 620 && msg.x <= 620 + 120 && msg.y >= 160 && msg.y <= 160 + 40)
 				{
-					//ÎÞÐè²Ù×÷
+					//æ— éœ€æ“ä½œ
 					break;
 				}
 
 				if (msg.x >= 440 && msg.x <= 440 + 120 && msg.y >= 250 && msg.y <= 250 + 40)
 				{
-					//ÎÞÐè²Ù×÷
+					//æ— éœ€æ“ä½œ
 					break;
 				}
 
 				if (msg.x >= 440 && msg.x <= 440 + 120 && msg.y >= 320 && msg.y <= 320 + 40)
 				{
-					//ÎÞÐè²Ù×÷
+					//æ— éœ€æ“ä½œ
 					break;
 				}
 
 				if (msg.x >= 440 && msg.x <= 440 + 120 && msg.y >= 390 && msg.y <= 390 + 40)
 				{
-					//ÎÞÐè²Ù×÷
+					//æ— éœ€æ“ä½œ
 				}
 
 				if (msg.x >= 440 && msg.x <= 440 + 120 && msg.y >= 460 && msg.y <= 460 + 40)
 				{
-					//·Åº¯Êý  ·µ»ØÔÝÍ£;
+					//æ”¾å‡½æ•°  è¿”å›žæš‚åœ;
 					PauseView();
 					break;
 				}
