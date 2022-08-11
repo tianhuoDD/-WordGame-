@@ -1,0 +1,6 @@
+D:\my code\easyX\文字游戏（地上的十便士）\x64\Debug\文字游戏（地上的十便士）.exe
+C:\Users\tianhuoDD\Desktop\1\文字游戏（地上的十便士）\x64\Debug\文字游戏（地上的十便士）.exe
+D:\my code\easyX\文字游戏-地上的十便士（最终版）\文字游戏-地上的十便士\x64\Debug\文字游戏（地上的十便士）.exe
+C:\Users\tianhuoDD\Desktop\文字游戏-项目完善\文字游戏-地上的十便士\x64\Debug\文字游戏（地上的十便士）.exe
+D:\01_Computer Project\01 项目《文字游戏》\代码\第二份\x64\Debug\文字游戏（地上的十便士）.exe
+C:\Users\tianhuoDD\Desktop\文字游戏-项目完善\第二份\x64\Debug\文字游戏（地上的十便士）.exe
